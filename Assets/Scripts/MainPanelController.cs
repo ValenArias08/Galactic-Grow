@@ -9,11 +9,15 @@ public class MainPanelController : MonoBehaviour
     public Slider volumeMaster;
     public Toggle mute;
     public AudioMixer mixer;
+    public AudioSource fxSource;
+    public AudioClip clicSound;
 
     [Header("Panels")]
     public GameObject mainPanel;
     public GameObject optionsPanel;
     public GameObject creditsPanel;
+
+  
 
     private void Awake()
     {
@@ -27,6 +31,7 @@ public class MainPanelController : MonoBehaviour
         optionsPanel.SetActive(false);
         creditsPanel.SetActive(false);
         panel.SetActive(true);
+        PlaySoundButton();
     }
 
     public void ChangeVolumeMaster(float v)
@@ -36,5 +41,10 @@ public class MainPanelController : MonoBehaviour
     public void ChangeVolumeFX(float v)
     {
         mixer.SetFloat("VolFX", v);
+    }
+
+    public void PlaySoundButton()
+    {
+        fxSource.PlayOneShot(clicSound);
     }
 }
