@@ -11,6 +11,7 @@ public class MainPanelController : MonoBehaviour
     public AudioMixer mixer;
     public AudioSource fxSource;
     public AudioClip clicSound;
+    private float lastVolume;
 
     [Header("Panels")]
     public GameObject mainPanel;
