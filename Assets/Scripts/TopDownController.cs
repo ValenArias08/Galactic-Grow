@@ -15,6 +15,14 @@ public class TopDownController : MonoBehaviour
 
     public float playerSpeed;
     private Vector2 inputValue;
+
+    public float playerLifeCount = 3;
+
+    // Attak stats
+
+    public float attackRange = 1.0f;
+    public float attackDamage = 10;
+
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();      
