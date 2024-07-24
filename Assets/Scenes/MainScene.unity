@@ -381,11 +381,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1142171666996204058, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1142171666996204058, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1142171666996204058, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -397,15 +397,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1142171666996204058, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenPanel
+      value: PlayDayScene
       objectReference: {fileID: 0}
     - target: {fileID: 1142171666996204058, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MainPanelController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1142171666996204058, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: DayScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142171666996204058, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1984468823143782818, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_Name
@@ -574,6 +578,38 @@ PrefabInstance:
     - target: {fileID: 5872791715716549290, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1054705963}
+    - target: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMute
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainPanelController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6137428915080662257, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_AnchorMax.y

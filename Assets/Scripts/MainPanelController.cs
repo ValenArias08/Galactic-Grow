@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class MainPanelController : MonoBehaviour
 {
@@ -24,6 +25,24 @@ public class MainPanelController : MonoBehaviour
     {
         volumeFX.onValueChanged.AddListener(ChangeVolumeFX);
         volumeMaster.onValueChanged.AddListener(ChangeVolumeMaster);
+    }
+
+    public void PlayDayScene(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+    }
+
+    public void SetMute()
+    {
+        if (mute.isOn)
+        {
+            mixer.GetFloat("VolMaster", out lastVolume);
+            mixer.SetFloat("VolMaster", -80);
+        }
+        else
+        {
+            mixer.SetFloat("VolMaster", lastVolume);
+        }
     }
 
     public void OpenPanel(GameObject panel)
