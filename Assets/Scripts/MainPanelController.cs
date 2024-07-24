@@ -1,29 +1,29 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Audio;
 
 public class MainPanelController : MonoBehaviour
 {
-    [Header("Options")]
-    public Slider volumeFX;
-    public Slider volumeMaster;
-    public Toggle mute;
-    public AudioMixer mixer;
-    public AudioSource fxSource;
-    public AudioClip clicSound;
-    private float lastVolume;
-
     [Header("Panels")]
     public GameObject mainPanel;
     public GameObject optionsPanel;
     public GameObject creditsPanel;
 
-  
+    [Header("Options")]
+    public Slider volumeFX;
+    public Slider volumeMaster;
+    public Toggle mute;
 
-    private void Awake()
+    private void Start()
     {
-        volumeFX.onValueChanged.AddListener(ChangeVolumeFX);
-        volumeMaster.onValueChanged.AddListener(ChangeVolumeMaster);
+        // Inicializa los valores de los sliders y el toggle
+        volumeFX.value = GameManager.Instance.GetVolumeFX();
+        volumeMaster.value = GameManager.Instance.GetVolumeMaster();
+        mute.isOn = GameManager.Instance.IsMuted();
+
+        // Añadir listeners para los sliders y el toggle
+        volumeFX.onValueChanged.AddListener(GameManager.Instance.ChangeVolumeFX);
+        volumeMaster.onValueChanged.AddListener(GameManager.Instance.ChangeVolumeMaster);
+        mute.onValueChanged.AddListener(delegate { GameManager.Instance.SetMute(mute.isOn); });
     }
 
     public void OpenPanel(GameObject panel)
@@ -32,20 +32,8 @@ public class MainPanelController : MonoBehaviour
         optionsPanel.SetActive(false);
         creditsPanel.SetActive(false);
         panel.SetActive(true);
-        PlaySoundButton();
+        GameManager.Instance.PlaySoundButton();
     }
 
-    public void ChangeVolumeMaster(float v)
-    {
-        mixer.SetFloat("VolMaster", v);
-    }
-    public void ChangeVolumeFX(float v)
-    {
-        mixer.SetFloat("VolFX", v);
-    }
-
-    public void PlaySoundButton()
-    {
-        fxSource.PlayOneShot(clicSound);
-    }
+    
 }
