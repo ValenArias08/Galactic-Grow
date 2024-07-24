@@ -184,7 +184,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &670128551
 MonoBehaviour:
@@ -390,18 +390,18 @@ PrefabInstance:
     - target: {fileID: 1142171666996204058, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1054705963}
+      objectReference: {fileID: 831362358}
     - target: {fileID: 1142171666996204058, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1142171666996204058, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayDayScene
+      value: LoadScene
       objectReference: {fileID: 0}
     - target: {fileID: 1142171666996204058, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainPanelController, Assembly-CSharp
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1142171666996204058, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -594,7 +594,7 @@ PrefabInstance:
     - target: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1054705963}
+      objectReference: {fileID: 831362358}
     - target: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -605,7 +605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainPanelController, Assembly-CSharp
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -825,30 +825,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
---- !u!1 &927429023
+--- !u!1 &831362357 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8330559132976294617, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
+  m_PrefabInstance: {fileID: 1981944839}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 927429025}
-  - component: {fileID: 927429024}
-  m_Layer: 0
-  m_Name: FXSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &927429024
+--- !u!114 &831362358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8330559132976294618, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
+  m_PrefabInstance: {fileID: 1981944839}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831362357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffbdcfcc1eb336b4fa1c2d4bbe4b9ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &831362360
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 927429023}
+  m_GameObject: {fileID: 831362357}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2745197097858423031, guid: 2e99d4601142573419d57221ba22a9d3, type: 2}
@@ -856,7 +855,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -938,21 +937,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &927429025
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 927429023}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 256.84332, y: 78.952, z: 0.05918918}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1054705958 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1984468823143782818, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
@@ -970,15 +954,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d2e59a3f5032e4aad6f93d3d4219f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeFX: {fileID: 541881535}
-  volumeMaster: {fileID: 1528506849}
-  mute: {fileID: 1265893371}
-  mixer: {fileID: 24100000, guid: 2e99d4601142573419d57221ba22a9d3, type: 2}
-  fxSource: {fileID: 927429024}
-  clicSound: {fileID: 8300000, guid: 2a3a054a213be6840869e5f664bf2a67, type: 3}
   mainPanel: {fileID: 399351777}
   optionsPanel: {fileID: 1404080528}
   creditsPanel: {fileID: 1441830758}
+  volumeFX: {fileID: 541881535}
+  volumeMaster: {fileID: 1528506849}
+  mute: {fileID: 1265893371}
 --- !u!114 &1265893371 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6117322070357708441, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
@@ -1150,9 +1131,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8330559132976294618, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
+      propertyPath: mute
+      value: 
+      objectReference: {fileID: 1265893371}
+    - target: {fileID: 8330559132976294618, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
+      propertyPath: mixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 2e99d4601142573419d57221ba22a9d3, type: 2}
+    - target: {fileID: 8330559132976294618, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
+      propertyPath: fxSource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330559132976294618, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
+      propertyPath: volumeFX
+      value: 
+      objectReference: {fileID: 541881535}
+    - target: {fileID: 8330559132976294618, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
+      propertyPath: bgmSource
+      value: 
+      objectReference: {fileID: 831362360}
+    - target: {fileID: 8330559132976294618, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
+      propertyPath: clicSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a3a054a213be6840869e5f664bf2a67, type: 3}
+    - target: {fileID: 8330559132976294618, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
+      propertyPath: volumeMaster
+      value: 
+      objectReference: {fileID: 1528506849}
     - target: {fileID: 8330559132976294619, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8330559132976294619, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
       propertyPath: m_LocalPosition.x
