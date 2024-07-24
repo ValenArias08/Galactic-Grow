@@ -9,9 +9,14 @@ public class SideController : MonoBehaviour
     // Start is called before the first frame update
     // Character components
 
+    [SerializeField] InputAction _moveInput = null;
+    [SerializeField] InputAction _cameraInput = null;
+
+
     public Rigidbody2D rBody;
-    public InputActionReference playerInput;
+    public InputActionReference playerInputSalto;
     public SpriteRenderer spriteReder;
+    public PlayerInput playerInput1;
 
 
 
@@ -31,17 +36,11 @@ public class SideController : MonoBehaviour
     // Getting the input reference value
     void Update()
     {
-        inputValue = playerInput.action.ReadValue<Vector2>();
+        inputValue = playerInput1.actions["SideMove"].ReadValue<Vector2>();
 
         AjustarRotacion(inputValue.x);
     }
 
-    public void OnMovement(InputAction.CallbackContext context)
-    {
-        inputValue = context.ReadValue<Vector2>();
-
-
-    }
 
     private void FixedUpdate()
     {
@@ -70,5 +69,18 @@ public class SideController : MonoBehaviour
     private void Saltar()
     {
         rBody.AddForce(new Vector2(0, fuerzaSalto), ForceMode2D.Impulse);
+    }
+
+    void OnEnable()
+    {
+        _moveInput.Enable();
+        _cameraInput.Enable();
+
+    }
+
+    void OnDisable()
+    {
+        _moveInput.Enable();
+        _cameraInput.Enable();
     }
 }
