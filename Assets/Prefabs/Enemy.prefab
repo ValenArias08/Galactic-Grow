@@ -136,9 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c045961612c29914fa4212a844248aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 0}
   player: {fileID: 7404671066680308945, guid: 6815b80fd88c95445924fd54ba897050, type: 3}
   speed: 3
   distanceBetween: 4
-  health: 3
+  enemyHealth: 2
   knockbackForce: 3
   redDuration: 0.25
