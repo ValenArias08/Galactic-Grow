@@ -4,15 +4,63 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    // Player / Game Stats
+
+    public int playerLifeCounter = 3;
+    public int playerTotalScore = 0;
+
+    // Singleton pattern
+    public static GameManager Instance { get; private set; }
+
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    //Adding score points
+
+    private void AddScorePoints()
     {
-        
+        // score logic
     }
+
+    // Scene management
+
+    public void LoadScene(string sceneName)
+    {
+        // Load scene 
+    }
+
+
+    // Player getting damaged / game over (only during Night phase)
+    public void LoseLife()
+    {
+        playerLifeCounter--;
+        if (playerLifeCounter == 0)
+        {
+            GameOver();
+        }
+    }
+
+    public void OnApplicationPause(bool pause)
+    {
+        //Método pausa
+    }
+    public void GameOver()
+    {
+        // game over logic
+        // botón Volver a intentarlo -> reinicie el puntaje, las vidas y cargue la escena de día
+        // botón Salir -> menú principal
+    }
+
 }
