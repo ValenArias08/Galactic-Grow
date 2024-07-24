@@ -12,14 +12,23 @@ public class EnemyMovement : MonoBehaviour
     public int health = 2; // Enemy's health
 
     public float knockbackForce = 5;
+    public float redDuration = 0.25f;
+
+    private SpriteRenderer spriteRenderer;
 
     private float distance; //Actual distance between player and enemy
 
     private Rigidbody2D enemyRb;
+    private Color originalColor;
+
 
     void Start()
     {
         enemyRb = GetComponent<Rigidbody2D>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
+
     }
 
     // Update is called once per frame
@@ -28,8 +37,7 @@ public class EnemyMovement : MonoBehaviour
         //calculate distance from enemy to the player
         distance = Vector2.Distance(transform.position, player.transform.position); 
         
-        Vector2 direction = player.transform.position - transform.position;
-        direction.Normalize();
+        Vector2 direction = player.transform.position - transform.position.normalized;
         //angle of rotation
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         //Condition to make the enemy move towards the player while facing him
@@ -42,8 +50,11 @@ public class EnemyMovement : MonoBehaviour
     }
     //Method for the enemy to take damage
     public void TakeDamage(int damage, Vector2 knockbackDirection){
+
         //reduce health on damage
         health -= damage;
+        StartCoroutine(ChangeColorOnCollision());
+
     //apply knockback force
     enemyRb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
 
@@ -63,5 +74,19 @@ public class EnemyMovement : MonoBehaviour
         }
 
         
+    }
+
+        // Coroutine to change color and then revert back
+    private IEnumerator ChangeColorOnCollision()
+    {
+        // Change color to red
+        spriteRenderer.color = Color.red;
+
+        // Wait for the specified duration
+        yield return new WaitForSeconds(redDuration);
+
+        // Revert to the original color
+        spriteRenderer.color = originalColor;
+;
     }
 }
