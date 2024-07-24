@@ -5,13 +5,18 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+
     public GameObject player;
     public float speed;
     public float distanceBetween; //Distance that will trigger the enemy to follow the player
     public int health = 2; // Enemy's health
+
     public float knockbackForce = 5;
+
     private float distance; //Actual distance between player and enemy
+
     private Rigidbody2D enemyRb;
+
     void Start()
     {
         enemyRb = GetComponent<Rigidbody2D>();
