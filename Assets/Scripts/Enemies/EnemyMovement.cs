@@ -5,15 +5,13 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-
+    [SerializeField] private EnemyData data;
     public GameObject player;
     public float speed;
     public float distanceBetween; //Distance that will trigger the enemy to follow the player
-    public int health = 2; // Enemy's health
-
+    public int enemyHealth = 2; // Enemy's health
     public float knockbackForce = 5;
     public float redDuration = 0.25f;
-
     private SpriteRenderer spriteRenderer;
 
     private float distance; //Actual distance between player and enemy
@@ -34,25 +32,29 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Movement();
+    }
+
+    private void Movement(){
         //calculate distance from enemy to the player
         distance = Vector2.Distance(transform.position, player.transform.position); 
         
         Vector2 direction = player.transform.position - transform.position.normalized;
+
         //angle of rotation
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
         //Condition to make the enemy move towards the player while facing him
         if(distance < distanceBetween){
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
-        }
-
-        
+        } 
     }
     //Method for the enemy to take damage
-    public void TakeDamage(int damage, Vector2 knockbackDirection){
+    public void TakeDamage(int damageOnEnemy, Vector2 knockbackDirection){
 
         //reduce health on damage
-        health -= damage;
+        enemyHealth -= damageOnEnemy;
         StartCoroutine(ChangeColorOnCollision());
 
     //apply knockback force
@@ -60,7 +62,7 @@ public class EnemyMovement : MonoBehaviour
 
 
         //destroy enemy when health is less than 0
-        if(health <= 0) {
+        if(enemyHealth <= 0) {
             Destroy(gameObject);
         }
     }
@@ -71,9 +73,7 @@ public class EnemyMovement : MonoBehaviour
             //Collision will make 1 int damage & and rest the collision position to the enemy position
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
             TakeDamage(1, knockbackDirection);
-        }
-
-        
+        }    
     }
 
         // Coroutine to change color and then revert back

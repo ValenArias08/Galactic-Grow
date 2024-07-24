@@ -461,6 +461,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1358329209}
+    - target: {fileID: 3383302959073480067, guid: fab3b9e45747e314e8b9149f42947e6e, type: 3}
+      propertyPath: knockbackForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5587448829951991335, guid: fab3b9e45747e314e8b9149f42947e6e, type: 3}
       propertyPath: m_Name
       value: Enemy
