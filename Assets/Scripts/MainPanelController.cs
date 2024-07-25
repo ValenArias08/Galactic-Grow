@@ -6,7 +6,7 @@ public class MainPanelController : MonoBehaviour
     [Header("Panels")]
     public GameObject mainPanel;
     public GameObject optionsPanel;
-    public GameObject creditsPanel;
+    public GameObject controlsPanel;
 
     [Header("Options")]
     public Slider volumeFX;
@@ -30,7 +30,7 @@ public class MainPanelController : MonoBehaviour
     {
         mainPanel.SetActive(false);
         optionsPanel.SetActive(false);
-        creditsPanel.SetActive(false);
+        controlsPanel.SetActive(false);
         panel.SetActive(true);
         GameManager.Instance.PlaySoundButton();
     }
