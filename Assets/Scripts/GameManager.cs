@@ -179,19 +179,13 @@ public class GameManager : MonoBehaviour
         playerLifeCounter--;
         if (playerLifeCounter == 0)
         {
-            GameOver();
+            GameOverRestart();
         }
     }
 
-    public void OnApplicationPause(bool pause)
+    public void GameOverRestart()
     {
-        //M�todo pausa
-    }
-    public void GameOver()
-    {
-        // game over logic
-        // bot�n Volver a intentarlo -> reinicie el puntaje, las vidas y cargue la escena de d�a
-        // bot�n Salir -> men� principal
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 
