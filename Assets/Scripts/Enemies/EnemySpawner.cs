@@ -4,31 +4,67 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public GameObject enemyPrefab; // Prefab del enemigo
+    public Transform[] spawnPoints; // Puntos de spawn donde los enemigos aparecerán
+    public int maxEnemiesPerWave = 10; // Número máximo de enemigos por oleada
+    public float spawnIntervalMin = 1f; // Intervalo mínimo de tiempo entre spawns
+    public float spawnIntervalMax = 3f; // Intervalo máximo de tiempo entre spawns
+    public float waveInterval = 10f; // Tiempo entre oleadas
 
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private float spawnInterval = 3f;
+    private int currentWave = 0; // Contador de la oleada actual
+    private int enemiesSpawned = 0; // Contador de enemigos spawneados en la oleada actual
+    private int enemiesDestroyed = 0; // Contador de enemigos destruidos en la oleada actual
 
-    public int numberOfEnemies = 5;
-    public float spawnX = 10;
-    public float spawnY = 10;
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(spawnEnemy(spawnInterval, enemyPrefab));
+        StartCoroutine(SpawnWave());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator SpawnWave()
     {
-        
+        while (true)
+        {
+            currentWave++;
+            enemiesSpawned = 0;
+            enemiesDestroyed = 0;
+
+            int enemiesToSpawn = maxEnemiesPerWave;
+            List<Transform> availableSpawnPoints = new List<Transform>(spawnPoints);
+
+            while (enemiesToSpawn > 0)
+            {
+                int spawnIndex = Random.Range(0, availableSpawnPoints.Count);
+                Transform spawnPoint = availableSpawnPoints[spawnIndex];
+                Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+                enemiesSpawned++;
+                enemiesToSpawn--;
+
+                // Esperar un intervalo aleatorio antes de spawnear el próximo enemigo
+                float spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
+                yield return new WaitForSeconds(spawnInterval);
+
+                // Eliminar el punto de spawn utilizado para evitar reutilizarlo en la misma oleada
+                availableSpawnPoints.RemoveAt(spawnIndex);
+
+                // Si no quedan puntos de spawn, restablecer la lista
+                if (availableSpawnPoints.Count == 0)
+                {
+                    availableSpawnPoints = new List<Transform>(spawnPoints);
+                }
+            }
+
+            // Esperar el intervalo de la oleada antes de comenzar la siguiente oleada
+            yield return new WaitForSeconds(waveInterval);
+        }
     }
 
-    private IEnumerator spawnEnemy(float interval, GameObject enemy){
-        yield return new WaitForSeconds(interval);
-        GameObject newEnemy = 
-        Instantiate(enemy, new Vector3(Random.Range(-5f, 5f), Random.Range(-5, 5), 0), Quaternion.identity);
-        StartCoroutine(spawnEnemy(interval, enemy));
-    } 
+    public void EnemyDestroyed()
+    {
+        enemiesDestroyed++;
+        if (enemiesDestroyed >= maxEnemiesPerWave)
+        {
+            // Todos los enemigos en la oleada actual han sido destruidos
+            Debug.Log("Wave " + currentWave + " completed!");
+        }
+    }
 }
