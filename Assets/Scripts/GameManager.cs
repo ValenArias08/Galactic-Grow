@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,11 +11,16 @@ public class GameManager : MonoBehaviour
     public AudioClip clicSound;
     private float lastVolume;
 
-
-
     // Player / Game Stats
     public int playerLifeCounter = 3;
     public int playerTotalScore = 0;
+
+    //Pause menu
+    public GameObject groupMenuPause;
+    public bool isPaused = false;
+    public InputActionReference pauseActionReference;
+
+    private PauseManager pauseManager;
 
     // Singleton pattern
     public static GameManager Instance { get; private set; }
@@ -33,12 +39,74 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (pauseManager == null)
+        {
+            pauseManager = FindObjectOfType<PauseManager>();
+        }
+    }
+
     private void Start()
     {
         if (bgmSource != null && !bgmSource.isPlaying)
         {
             bgmSource.Play();  // Ensure background music is playing
         }
+    }
+
+    private void Update()
+    {
+        if (pauseActionReference != null && pauseActionReference.action.triggered)
+        {
+            if (!isPaused)
+            {
+                PauseGame();
+            }
+            else
+            {
+                ResumeMenu();
+            }
+        }
+    }
+
+    private void PauseGame()
+    {
+        if (pauseManager == null)
+        {
+            pauseManager = FindObjectOfType<PauseManager>();
+        }
+
+        if (pauseManager != null)
+        {
+            pauseManager.PauseGame();
+            isPaused = true;
+        }
+    }
+
+    public void ResumeMenu()
+    {
+        if (pauseManager != null)
+        {
+            pauseManager.ResumeGame();
+        }
+        groupMenuPause.SetActive(false);////////////////
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
+
+    public void MainMenu(string sceneName)
+    {
+        if (pauseManager != null)
+        {
+            pauseManager.MainMenu(sceneName);
+        }
+    }
+
+    public void RestartSceneMenu()
+    {
+        pauseManager.RestartScene();
+
     }
 
     public float GetVolumeFX()
@@ -50,28 +118,26 @@ public class GameManager : MonoBehaviour
 
     public float GetVolumeMaster()
     {
-        float value;
-        mixer.GetFloat("VolMaster", out value);
+        mixer.GetFloat("VolMaster", out float value);
         return value;
     }
 
     public bool IsMuted()
     {
-        float value;
-        mixer.GetFloat("VolMaster", out value);
+        mixer.GetFloat("VolMaster", out float value);
         return value <= -80;
     }
 
     public void SetMute(bool isMuted)
     {
-        if (IsMuted())
-        {
-            mixer.SetFloat("VolMaster", lastVolume);
-        }
-        else
+        if (isMuted)
         {
             mixer.GetFloat("VolMaster", out lastVolume);
             mixer.SetFloat("VolMaster", -80);
+        }
+        else
+        {
+            mixer.SetFloat("VolMaster", lastVolume);
         }
     }
 
@@ -112,10 +178,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnApplicationPause(bool pause)
-    {
-        //Método pausa
-    }
     public void GameOver()
     {
         // game over logic
