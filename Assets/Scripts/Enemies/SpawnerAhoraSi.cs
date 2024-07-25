@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnerAhoraSi : MonoBehaviour
 {   public GameObject enemyPrefab;
-    [SerializeField] public int maxInstance = 10;
+    [SerializeField] public int maxInstance = 40;
     private float interval01;
     private float interval02;
     private float interval03;
@@ -25,7 +25,7 @@ public class SpawnerAhoraSi : MonoBehaviour
 
                 currentInstance++;
 
-                interval01 = Random.Range(1.0f, 2.0f);
+                interval01 = Random.Range(6.0f, 8.0f);
                 yield return new WaitForSeconds(interval01);
             }
         }
@@ -44,7 +44,7 @@ public class SpawnerAhoraSi : MonoBehaviour
 
                 currentInstance++;
 
-                interval02 = Random.Range(1.5f, 3.0f);
+                interval02 = Random.Range(4.0f, 5.0f);
                 yield return new WaitForSeconds(interval02);
             }
         }
@@ -63,7 +63,7 @@ public class SpawnerAhoraSi : MonoBehaviour
 
                 currentInstance++;
 
-                interval03 = Random.Range(2.5f, 5.0f);
+                interval03 = Random.Range(1.5f, 3.0f);
                 yield return new WaitForSeconds(interval02);
             }
         }
