@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Bush-tree
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -18,13 +20,13 @@ TagManager:
   - 
   - 
   - 
+  - ObstacleLayer
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - TreeLayer
+  - BushLayer
+  - MaxBoundary
   - 
   - 
   - 
@@ -42,6 +44,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: PlayerLayer
+  - name: TerrainLayerSprite
+    uniqueID: 907896775
+    locked: 0
+  - name: PlayerLayerSprite
     uniqueID: 4250345827
+    locked: 0
+  - name: EnemyLayerSprite
+    uniqueID: 3179689167
+    locked: 0
+  - name: TreeLayerSprite
+    uniqueID: 1366386405
+    locked: 0
+  - name: BushLayerSprite
+    uniqueID: 555303155
     locked: 0
