@@ -28,7 +28,7 @@ public class TopDownController : MonoBehaviour
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
-        int currentScore = GameManager.Instance.playerTotalScore;
+        
     }
 
     // Getting the input reference value

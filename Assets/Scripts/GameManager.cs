@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
     // Singleton pattern
     public static GameManager Instance { get; private set; }
 
+    public void AddScore(int score)
+    {
+        playerTotalScore += score;
+        Debug.Log("Total Score: " + playerTotalScore);
+    }
     private void Awake()
     {
         if (Instance == null)
