@@ -174,15 +174,13 @@ public class GameManager : MonoBehaviour
         playerLifeCounter--;
         if (playerLifeCounter == 0)
         {
-            GameOver();
+            GameOverRestart();
         }
     }
 
-    public void GameOver()
+    public void GameOverRestart()
     {
-        // game over logic
-        // botón Volver a intentarlo -> reinicie el puntaje, las vidas y cargue la escena de día
-        // botón Salir -> menú principal
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 
