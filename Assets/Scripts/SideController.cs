@@ -9,12 +9,10 @@ public class SideController : MonoBehaviour
     // Start is called before the first frame update
     // Character components
 
-    [SerializeField] InputAction _moveInput = null;
-    [SerializeField] InputAction _cameraInput = null;
 
 
     public Rigidbody2D rBody;
-    public InputActionReference playerInputSalto;
+    public InputActionReference playerInput;
     public SpriteRenderer spriteReder;
     public PlayerInput playerInput1;
 
@@ -71,16 +69,5 @@ public class SideController : MonoBehaviour
         rBody.AddForce(new Vector2(0, fuerzaSalto), ForceMode2D.Impulse);
     }
 
-    void OnEnable()
-    {
-        _moveInput.Enable();
-        _cameraInput.Enable();
 
-    }
-
-    void OnDisable()
-    {
-        _moveInput.Enable();
-        _cameraInput.Enable();
-    }
 }
