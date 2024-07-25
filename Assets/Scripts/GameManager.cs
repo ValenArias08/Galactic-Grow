@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
     // Singleton pattern
     public static GameManager Instance { get; private set; }
 
+    public void AddScore(int score)
+    {
+        playerTotalScore += score;
+        Debug.Log("Total Score: " + playerTotalScore);
+    }
     private void Awake()
     {
         if (Instance == null)
@@ -114,13 +119,13 @@ public class GameManager : MonoBehaviour
 
     public void OnApplicationPause(bool pause)
     {
-        //Método pausa
+        //Mï¿½todo pausa
     }
     public void GameOver()
     {
         // game over logic
-        // botón Volver a intentarlo -> reinicie el puntaje, las vidas y cargue la escena de día
-        // botón Salir -> menú principal
+        // botï¿½n Volver a intentarlo -> reinicie el puntaje, las vidas y cargue la escena de dï¿½a
+        // botï¿½n Salir -> menï¿½ principal
     }
 
 

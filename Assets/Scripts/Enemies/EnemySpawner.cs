@@ -4,60 +4,67 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // El prefab del enemigo que queremos generar
-    public GameObject enemyPrefab;
+    public GameObject enemyPrefab; // Prefab del enemigo
+    public Transform[] spawnPoints; // Puntos de spawn donde los enemigos aparecerán
+    public int maxEnemiesPerWave = 10; // Número máximo de enemigos por oleada
+    public float spawnIntervalMin = 1f; // Intervalo mínimo de tiempo entre spawns
+    public float spawnIntervalMax = 3f; // Intervalo máximo de tiempo entre spawns
+    public float waveInterval = 10f; // Tiempo entre oleadas
 
-    // Puntos de spawn
-    public Transform[] spawnPoints;
-
-    // Configuración de oleadas
-    public int enemiesPerWave = 10;
-    public float minSpawnInterval = 1f;
-    public float maxSpawnInterval = 3f;
-
-    // Número total de enemigos por oleada
-    private int totalEnemiesToSpawn;
-    // Número de enemigos generados en la oleada actual
-    private int spawnedEnemiesCount;
+    private int currentWave = 0; // Contador de la oleada actual
+    private int enemiesSpawned = 0; // Contador de enemigos spawneados en la oleada actual
+    private int enemiesDestroyed = 0; // Contador de enemigos destruidos en la oleada actual
 
     void Start()
     {
-        // Iniciar la generación de la primera oleada
         StartCoroutine(SpawnWave());
     }
 
-    // Coroutine para generar una oleada de enemigos
-    IEnumerator SpawnWave()
+    private IEnumerator SpawnWave()
     {
-        totalEnemiesToSpawn = enemiesPerWave;
-        spawnedEnemiesCount = 0;
-
-        while (spawnedEnemiesCount < totalEnemiesToSpawn)
+        while (true)
         {
-            // Esperar un intervalo aleatorio antes de generar más enemigos
-            float spawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
-            yield return new WaitForSeconds(spawnInterval);
+            currentWave++;
+            enemiesSpawned = 0;
+            enemiesDestroyed = 0;
 
-            // Elegir un número aleatorio de puntos de spawn
-            int spawnPointCount = Random.Range(1, spawnPoints.Length + 1);
+            int enemiesToSpawn = maxEnemiesPerWave;
+            List<Transform> availableSpawnPoints = new List<Transform>(spawnPoints);
 
-            // Generar enemigos en puntos de spawn aleatorios
-            for (int i = 0; i < spawnPointCount && spawnedEnemiesCount < totalEnemiesToSpawn; i++)
+            while (enemiesToSpawn > 0)
             {
-                // Elegir un punto de spawn aleatorio
-                Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-                // Instanciar el enemigo en el punto de spawn
+                int spawnIndex = Random.Range(0, availableSpawnPoints.Count);
+                Transform spawnPoint = availableSpawnPoints[spawnIndex];
                 Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+                enemiesSpawned++;
+                enemiesToSpawn--;
 
-                // Incrementar el contador de enemigos generados
-                spawnedEnemiesCount++;
+                // Esperar un intervalo aleatorio antes de spawnear el próximo enemigo
+                float spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
+                yield return new WaitForSeconds(spawnInterval);
+
+                // Eliminar el punto de spawn utilizado para evitar reutilizarlo en la misma oleada
+                availableSpawnPoints.RemoveAt(spawnIndex);
+
+                // Si no quedan puntos de spawn, restablecer la lista
+                if (availableSpawnPoints.Count == 0)
+                {
+                    availableSpawnPoints = new List<Transform>(spawnPoints);
+                }
             }
-        }
 
-        // Iniciar la siguiente oleada después de un tiempo de descanso si es necesario
-        // yield return new WaitForSeconds(waveInterval);
-        // StartCoroutine(SpawnWave());
+            // Esperar el intervalo de la oleada antes de comenzar la siguiente oleada
+            yield return new WaitForSeconds(waveInterval);
+        }
+    }
+
+    public void EnemyDestroyed()
+    {
+        enemiesDestroyed++;
+        if (enemiesDestroyed >= maxEnemiesPerWave)
+        {
+            // Todos los enemigos en la oleada actual han sido destruidos
+            Debug.Log("Wave " + currentWave + " completed!");
+        }
     }
 }
-
