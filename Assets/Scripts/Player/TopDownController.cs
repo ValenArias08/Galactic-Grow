@@ -5,46 +5,57 @@ using UnityEngine.InputSystem;
 
 public class TopDownController : MonoBehaviour
 {
+    
+    
+    
     // Character components
 
     public Rigidbody2D rBody;
     public InputActionReference playerInput;
     public SpriteRenderer spriteReder;
+    public InputActionReference inputMovementAction;
 
-    // Character variables
+    public Transform attackPoint;
+    // Character stats
 
     public float playerSpeed;
+
     private Vector2 inputValue;
+    
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
 
-    // Attak stats
+    public Vector2 movementInput;
 
-    public float attackRange = 1.0f;
-    public float attackDamage = 10;
+    private void Action_performed(InputAction.CallbackContext obj)
+    {
+        throw new System.NotImplementedException();
+    }
 
-    // Enemy
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null) return;
 
-    private 
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+ 
 
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
-        
     }
 
-    // Getting the input reference value
+    
     void Update()
     {
-        inputValue = playerInput.action.ReadValue<Vector2>();
+        inputValue = playerInput.action.ReadValue<Vector2>(); // Gets the input reference value for the movement method
+        rBody.velocity = inputValue * playerSpeed;
     }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
         inputValue = context.ReadValue<Vector2>();
-    }
-
-    private void FixedUpdate()
-    {
-        rBody.velocity = inputValue * playerSpeed;
     }
 
 }

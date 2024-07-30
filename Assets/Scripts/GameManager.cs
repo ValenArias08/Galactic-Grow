@@ -25,24 +25,32 @@ public class GameManager : MonoBehaviour
     // Singleton pattern
     public static GameManager Instance { get; private set; }
 
-    public void AddScore(int score)
-    {
-        playerTotalScore += score;
-        Debug.Log("Total Score: " + playerTotalScore);
-    }
     private void Awake()
     {
         if (Instance == null)
         {
-            Instance = this; 
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
 
         else
         {
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
         }
     }
+
+
+    //Adding score points
+    public void AddScore(int score)
+    {
+        playerTotalScore += score;
+    }
+    
+    public int GetPoints()
+    {
+        return playerTotalScore;
+    }
+    
 
     private void OnEnable()
     {
@@ -160,11 +168,7 @@ public class GameManager : MonoBehaviour
         bgmSource.PlayOneShot(clicSound);
     }
 
-    //Adding score points
-    private void AddScorePoints()
-    {
-        // score logic
-    }
+    
 
     // Scene management
     public void LoadScene(string sceneName)
