@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
     private float timer = 0f; 
 
     [SerializeField] private InputActionReference inputAttackAction;
-
+    [SerializeField] private InputActionReference playerInput;
     [SerializeField] private PolygonCollider2D attackCollider; 
 
     public GameObject attackPrefab;
@@ -28,15 +28,15 @@ public class PlayerAttack : MonoBehaviour
     {
         Attack();
         Invoke("EndAttack", attackDuration);
-        ChangePosition();
+        
+
     }
 
-    private void ChangePosition()
+    private void ChangePosition( Vector2 point1, Vector2 point2)
     {
-        for (int i = 0; i < colliderPoints.Length; i++)
-        {
-            Debug.Log(colliderPoints[i]);
-        }
+        colliderPoints[1] = point1;
+        colliderPoints[1] = point2;
+        attackCollider.points = colliderPoints;
     }
 
     private void Attack()
