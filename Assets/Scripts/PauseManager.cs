@@ -3,24 +3,25 @@ using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
-    public GameObject pauseCanvasPrefab;
-    private GameObject pauseCanvasInstance;
+    [Header("Game Canvas")]
+
+    [SerializeField] private GameObject pauseCanvas, winCanvas, loseCanvas;
+    //private GameObject pauseCanvasInstance;
     private InputAction pauseAction;
     private bool isPaused = false;
 
     private void Awake()
     {
-        if (FindObjectsOfType<PauseManager>().Length > 1)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(gameObject);
-
         pauseAction = new InputAction(binding: "<Keyboard>/p");
         pauseAction.performed += ctx => TogglePause();
         pauseAction.Enable();
+    }
+
+    private void Start()
+    {
+        pauseCanvas.SetActive(false);
+        winCanvas.SetActive(false);
+        loseCanvas.SetActive(false);
     }
 
     private void OnDestroy()
@@ -29,7 +30,9 @@ public class PauseManager : MonoBehaviour
         pauseAction.performed -= ctx => TogglePause();
     }
 
-    private void TogglePause()
+    //Metodos
+
+    public void TogglePause()
     {
         if (isPaused)
         {
@@ -40,58 +43,77 @@ public class PauseManager : MonoBehaviour
             PauseGame();
         }
     }
-
+    // Pausar Juego
     public void PauseGame()
     {
-        if (pauseCanvasInstance == null)
-        {
-            pauseCanvasInstance = Instantiate(pauseCanvasPrefab);
-            var panel = pauseCanvasInstance.transform.Find("Panel");
-            if (panel != null)
-            {
-                panel.gameObject.SetActive(true);
-            }
-        }
-        else
-        {
-            pauseCanvasInstance.gameObject.SetActive(true);
-            var panel = pauseCanvasInstance.transform.Find("Panel");
-            if (panel != null)
-            {
-                panel.gameObject.SetActive(true);
-            }
-        }
+        pauseCanvas.SetActive(true);
         Time.timeScale = 0;
         isPaused = true;
     }
 
+    //Renaudar Juego
     public void ResumeGame()
     {
-        if (pauseCanvasInstance != null)
+        if (pauseCanvas != null)
         {
-            pauseCanvasInstance.SetActive(false);
+            pauseCanvas.SetActive(false);
         }
         Time.timeScale = 1;
         isPaused = false;
     }
 
+    // Ir al Menu principal
     public void MainMenu(string sceneName)
-    {
+    {   
+        HideLoseCanvas();
+        HideWinCanvas();
+
         Time.timeScale = 1;
-        if (pauseCanvasInstance != null)
+        if (pauseCanvas != null)
         {
-            Destroy(pauseCanvasInstance);
+            pauseCanvas.SetActive(false);
         }
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 
+    // Reiniciar la Escena Actual
     public void RestartScene()
     {
+        HideLoseCanvas();
+        HideWinCanvas();
+
         Time.timeScale = 1;
-        if (pauseCanvasInstance != null)
+        if (pauseCanvas != null)
         {
-            Destroy(pauseCanvasInstance);
+            pauseCanvas.SetActive(false);
         }
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
+
+    //Canvas de Victoria
+
+    public void ShowWinCanvas()
+    {
+        winCanvas.SetActive(true);
+        Time.timeScale = 0;
+        isPaused = true;
+    }
+
+    public void HideWinCanvas()
+    {
+        winCanvas.SetActive(false); 
+    }
+
+    //Canvas de GameOver
+    public void ShowLoseCanvas()
+    {
+        loseCanvas.SetActive(true);
+        Time.timeScale = 0;
+        isPaused = true;
+    }
+
+    public void HideLoseCanvas()
+    {
+        loseCanvas.SetActive(false);
     }
 }
