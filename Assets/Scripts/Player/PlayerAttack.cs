@@ -10,11 +10,13 @@ public class PlayerAttack : MonoBehaviour
     private Vector2[] colliderPoints;
     public float attackCoolDown = 0.25f;
     public float attackDuration = 1f;
-    private float timer = 0f; 
+    public static int playerDamage = 3; 
 
     [SerializeField] private InputActionReference inputAttackAction;
     [SerializeField] private InputActionReference playerInput;
-    [SerializeField] private PolygonCollider2D attackCollider; 
+    [SerializeField] private PolygonCollider2D attackCollider;
+
+    private Vector2 attackDirection;
 
     public GameObject attackPrefab;
 
@@ -24,19 +26,61 @@ public class PlayerAttack : MonoBehaviour
         colliderPoints = attackCollider.points;
     }
 
+    private void Update()
+    {
+        attackDirection = playerInput.action.ReadValue<Vector2>(); // Gets the input reference value for the movement method
+    }
+
     public void OnAttack(InputAction.CallbackContext context)
     {
         Attack();
         Invoke("EndAttack", attackDuration);
-        
-
+        ChangePosition();
+       //Debug.Log(attackDirection);
     }
 
-    private void ChangePosition( Vector2 point1, Vector2 point2)
+    private void ChangePosition()
     {
-        colliderPoints[1] = point1;
-        colliderPoints[1] = point2;
+
+        //Ataque arriba
+        if (attackDirection == new Vector2 (0, 1))
+        {
+            colliderPoints[1] = new Vector2(1, 0.5f);
+            colliderPoints[2] = new Vector2(0, 0.5f);
+        }
+
+
+        //Ataque darecha
+        if (attackDirection == new Vector2(1, 0))
+        {
+            colliderPoints[1] = new Vector2(1.5f, 0);
+            colliderPoints[2] = new Vector2(1.5f, -1);
+        }
+
+
+        //Ataqeu izquierda
+        if (attackDirection == new Vector2(0, -1))
+        {
+            colliderPoints[1] = new Vector2(1, -1.5f);
+            colliderPoints[2] = new Vector2(0, -1.5f);
+        }
+
+        //Ataque abajo
+        if (attackDirection == new Vector2(-1, 0))
+        {
+            colliderPoints[1] = new Vector2(-0.5f, 0);
+            colliderPoints[2] = new Vector2(-0.5f, -1);
+        }
+
+        //Ataque en idle
+        if (attackDirection == new Vector2(0, 0))
+        {
+            colliderPoints[1] = new Vector2(1, -1.5f);
+            colliderPoints[2] = new Vector2(0, -1.5f);
+        }
+
         attackCollider.points = colliderPoints;
+
     }
 
     private void Attack()

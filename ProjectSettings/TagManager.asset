@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Bush-tree
   - Obstacle
+  - AttackCollision
   layers:
   - Default
   - TransparentFX
