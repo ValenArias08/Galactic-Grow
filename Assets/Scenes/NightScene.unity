@@ -1449,7 +1449,6 @@ MonoBehaviour:
   rBody: {fileID: 791531228}
   playerInput: {fileID: 1458285710080701131, guid: d433c7c062ab3964ca5b229c8eb621d3, type: 3}
   spriteReder: {fileID: 791531230}
-  inputMovementAction: {fileID: 0}
   attackPoint: {fileID: 0}
   playerSpeed: 4
   attackRange: 1
@@ -1526,6 +1525,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 18bac830-561c-407d-80bd-bbd063033711
     m_ActionName: PlayerMovementLateral/Pause[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fb775067-1e75-4333-9048-0ef3349dd4d2
+    m_ActionName: PlayerMovementLateral/KeyNightScene[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: PlayerTopDown
   m_DefaultActionMap: PlayerMovementTopDown
@@ -1662,6 +1665,7 @@ MonoBehaviour:
   attackCoolDown: 0.25
   attackDuration: 0.25
   inputAttackAction: {fileID: 7214418871604949520, guid: d433c7c062ab3964ca5b229c8eb621d3, type: 3}
+  playerInput: {fileID: 1458285710080701131, guid: d433c7c062ab3964ca5b229c8eb621d3, type: 3}
   attackCollider: {fileID: 1013453322}
   attackPrefab: {fileID: 1013453320}
 --- !u!1 &834663630

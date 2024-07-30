@@ -13,7 +13,6 @@ public class TopDownController : MonoBehaviour
     public Rigidbody2D rBody;
     public InputActionReference playerInput;
     public SpriteRenderer spriteReder;
-    public InputActionReference inputMovementAction;
 
     public Transform attackPoint;
     // Character stats
@@ -56,6 +55,7 @@ public class TopDownController : MonoBehaviour
     public void OnMovement(InputAction.CallbackContext context)
     {
         inputValue = context.ReadValue<Vector2>();
+        //Debug.Log(inputValue);
     }
 
 }
