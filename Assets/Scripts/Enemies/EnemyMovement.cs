@@ -7,12 +7,13 @@ public class EnemyMovement : MonoBehaviour
     private GameObject player;
     public float speed;
     public float distanceBetween; // Distance that will trigger the enemy to follow the player
-    public int enemyHealth = 2; // Enemy's health
+    public int enemyHealth = 10; // Enemy's health
+    private int enemyScorePoints = 15;
     public float knockbackForce = 5;
     public float redDuration = 0.25f;
 
     private SpriteRenderer spriteRenderer;
-    private float distance; // Actual distance between player and enemy
+    private float distance; // Distance between player and enemy
     private Rigidbody2D enemyRb;
     private Color originalColor;
 
@@ -46,9 +47,10 @@ public class EnemyMovement : MonoBehaviour
         enemyRb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
 
         // Destroy enemy when health is less than or equal to 0
-        if (enemyHealth <= 0)
+
+        if (enemyHealth <= 0 && GameManager.Instance != null)
         {
-            Destroy(gameObject);
+            GameManager.Instance.AddScore(enemyScorePoints);
         }
     }
 
