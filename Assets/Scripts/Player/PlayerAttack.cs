@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
     private Vector2[] colliderPoints;
     public float attackCoolDown = 0.25f;
     public float attackDuration = 1f;
-    private float timer = 0f; 
+    public static int playerDamage = 3; 
 
     [SerializeField] private InputActionReference inputAttackAction;
     [SerializeField] private InputActionReference playerInput;
@@ -36,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
         Attack();
         Invoke("EndAttack", attackDuration);
         ChangePosition();
-        Debug.Log(attackDirection);
+       //Debug.Log(attackDirection);
     }
 
     private void ChangePosition()

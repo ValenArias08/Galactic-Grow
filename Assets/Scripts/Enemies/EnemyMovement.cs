@@ -17,12 +17,15 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D enemyRb;
     private Color originalColor;
 
+    private int incomingDamage;
+
     void Start()
     {
         enemyRb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
         player = GameObject.Find("Player");
+        incomingDamage = PlayerAttack.playerDamage;
     }
 
     void Update()
@@ -37,10 +40,11 @@ public class EnemyMovement : MonoBehaviour
         enemyRb.AddForce(lookDirection * speed);
     }
 
-    public void TakeDamage(int damageOnEnemy, Vector2 knockbackDirection)
+    public void TakeDamage(int incomingDamage, Vector2 knockbackDirection)
     {
         // Reduce health on damage
-        enemyHealth -= damageOnEnemy;
+
+        enemyHealth = enemyHealth - incomingDamage;
         StartCoroutine(ChangeColorOnCollision());
 
         // Apply knockback force
@@ -51,16 +55,17 @@ public class EnemyMovement : MonoBehaviour
         if (enemyHealth <= 0 && GameManager.Instance != null)
         {
             GameManager.Instance.AddScore(enemyScorePoints);
+            Destroy(gameObject);
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Check collision with the player
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("AttackCollision"))
         {
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-            TakeDamage(1, knockbackDirection);
+            TakeDamage(incomingDamage, knockbackDirection);
         }
     }
 
