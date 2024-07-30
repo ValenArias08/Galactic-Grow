@@ -468,7 +468,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3341851118600747079}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: GameOverRestart
         m_Mode: 1
@@ -817,7 +817,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3341851118600747079}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
@@ -841,7 +841,6 @@ GameObject:
   - component: {fileID: 3341851118600747077}
   - component: {fileID: 3341851118600747098}
   - component: {fileID: 3341851118600747099}
-  - component: {fileID: 3341851118600747079}
   m_Layer: 5
   m_Name: CanvasFinishGame
   m_TagString: Untagged
@@ -932,23 +931,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3341851118600747079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3341851118600747096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffbdcfcc1eb336b4fa1c2d4bbe4b9ae2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 0}
-  bgmSource: {fileID: 0}
-  clicSound: {fileID: 0}
-  playerLifeCounter: 3
-  playerTotalScore: 0
-  groupMenuPause: {fileID: 0}
-  isPaused: 0
-  pauseActionReference: {fileID: 0}

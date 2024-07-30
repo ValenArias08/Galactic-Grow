@@ -16,14 +16,14 @@ public class MainPanelController : MonoBehaviour
     private void Start()
     {
         // Inicializa los valores de los sliders y el toggle
-        volumeFX.value = GameManager.Instance.GetVolumeFX();
-        volumeMaster.value = GameManager.Instance.GetVolumeMaster();
-        mute.isOn = GameManager.Instance.IsMuted();
+        volumeFX.value = AudioManager.Instance.GetVolumeFX();
+        volumeMaster.value = AudioManager.Instance.GetVolumeMaster();
+        mute.isOn = AudioManager.Instance.IsMuted();
 
         // Añadir listeners para los sliders y el toggle
-        volumeFX.onValueChanged.AddListener(GameManager.Instance.ChangeVolumeFX);
-        volumeMaster.onValueChanged.AddListener(GameManager.Instance.ChangeVolumeMaster);
-        mute.onValueChanged.AddListener(delegate { GameManager.Instance.SetMute(mute.isOn); });
+        volumeFX.onValueChanged.AddListener(AudioManager.Instance.ChangeVolumeFX);
+        volumeMaster.onValueChanged.AddListener(AudioManager.Instance.ChangeVolumeMaster);
+        mute.onValueChanged.AddListener(delegate { AudioManager.Instance.SetMute(mute.isOn); });
     }
 
     public void OpenPanel(GameObject panel)
@@ -32,7 +32,7 @@ public class MainPanelController : MonoBehaviour
         optionsPanel.SetActive(false);
         controlsPanel.SetActive(false);
         panel.SetActive(true);
-        GameManager.Instance.PlaySoundButton();
+        AudioManager.Instance.PlaySoundButton();
     }
 
     
