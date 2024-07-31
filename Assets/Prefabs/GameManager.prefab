@@ -44,5 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffbdcfcc1eb336b4fa1c2d4bbe4b9ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 0}
+  bgmSource: {fileID: 0}
+  clicSound: {fileID: 0}
   playerLifeCounter: 3
   playerTotalScore: 0
+  groupMenuPause: {fileID: 0}
+  isPaused: 0
+  pauseActionReference: {fileID: 0}

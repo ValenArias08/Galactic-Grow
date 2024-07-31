@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
         else
         {
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
         }
     }
 
