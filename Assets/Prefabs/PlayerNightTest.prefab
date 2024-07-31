@@ -229,15 +229,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33bf33a98397d9469f5a457a2fb5a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseManager: {fileID: 0}
+  maxPlayerLife: 3
   rBody: {fileID: 209222702218174718}
   playerInput: {fileID: 1458285710080701131, guid: d433c7c062ab3964ca5b229c8eb621d3, type: 3}
   spriteReder: {fileID: 4261302332788045182}
+  lifeCounter1: {fileID: 0}
+  lifeCounter2: {fileID: 0}
+  lifeCounter3: {fileID: 0}
+  fullHeart: {fileID: 791006889, guid: 674a06fbfe36ac04e8d671a090cb882f, type: 3}
+  emptyHeart: {fileID: -1102190603, guid: 674a06fbfe36ac04e8d671a090cb882f, type: 3}
   attackPoint: {fileID: 0}
-  playerSpeed: 4
-  attackRange: 1
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 128
   movementInput: {x: 0, y: 0}
 --- !u!114 &7281616746519767304
 MonoBehaviour:

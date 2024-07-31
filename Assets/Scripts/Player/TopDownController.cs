@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class TopDownController : MonoBehaviour
 {
+    [SerializeField] private PauseManager pauseManager;
 
     public int maxPlayerLife = 3;
     private int playerLifeCounter;
@@ -46,6 +47,8 @@ public class TopDownController : MonoBehaviour
     {
         rBody = GetComponent<Rigidbody2D>();
         playerLifeCounter = maxPlayerLife;
+
+        pauseManager = FindAnyObjectByType<PauseManager>();
     }
 
     
@@ -83,7 +86,7 @@ public class TopDownController : MonoBehaviour
         if (playerLifeCounter == 0)
         {
             lifeCounter1.sprite = emptyHeart;
-            // AQU� M�TODO DE GAME OVER Y DESPLEGAR EL CANVAS DE REINICIAR O IR AL MEN�
+            pauseManager.ShowLoseCanvas();
         }
     }
 
