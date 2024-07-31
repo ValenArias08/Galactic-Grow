@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -59,12 +60,11 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        // Check collision with the player
-        if (collision.gameObject.CompareTag("AttackCollision"))
+        if (other.gameObject.CompareTag("AttackCollision"))
         {
-            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+            Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;
             TakeDamage(incomingDamage, knockbackDirection);
         }
     }

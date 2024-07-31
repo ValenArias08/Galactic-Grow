@@ -23,6 +23,11 @@ public class SideController : MonoBehaviour
     public bool mirandoDerecha = true;
     private Vector2 inputValue;
 
+
+    //Animations
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private bool isMoveRight, isMoveLeft;
+
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
@@ -32,6 +37,28 @@ public class SideController : MonoBehaviour
     void Update()
     {
         inputValue = playerInput1.actions["SideMove"].ReadValue<Vector2>();
+
+
+        // Comprobar la dirección del movimiento basado en el input
+        if (inputValue.x > 0)
+        {
+            isMoveRight = true;
+            playerAnimator.SetBool("isMoveRight", isMoveRight);
+        }
+        else if (inputValue.x < 0)
+        {
+            isMoveLeft = true;
+            playerAnimator.SetBool("isMoveLeft", isMoveLeft);
+        }
+        else
+        {
+            isMoveLeft = false;
+            playerAnimator.SetBool("isMoveLeft", isMoveLeft);
+            isMoveRight = false;
+            playerAnimator.SetBool("isMoveRight", isMoveRight);
+            
+        }
+
 
         AjustarRotacion(inputValue.x);
     }
