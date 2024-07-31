@@ -25,7 +25,7 @@ public class SideController : MonoBehaviour
 
 
     //Animations
-    [SerializeField] private Animator playerAnimator;
+    //[SerializeField] private Animator playerAnimator;
     [SerializeField] private bool isMoveRight, isMoveLeft;
 
     void Start()
@@ -43,19 +43,19 @@ public class SideController : MonoBehaviour
         if (inputValue.x > 0)
         {
             isMoveRight = true;
-            playerAnimator.SetBool("isMoveRight", isMoveRight);
+            //playerAnimator.SetBool("isMoveRight", isMoveRight);
         }
         else if (inputValue.x < 0)
         {
             isMoveLeft = true;
-            playerAnimator.SetBool("isMoveLeft", isMoveLeft);
+            //playerAnimator.SetBool("isMoveLeft", isMoveLeft);
         }
         else
         {
             isMoveLeft = false;
-            playerAnimator.SetBool("isMoveLeft", isMoveLeft);
+            //playerAnimator.SetBool("isMoveLeft", isMoveLeft);
             isMoveRight = false;
-            playerAnimator.SetBool("isMoveRight", isMoveRight);
+            //playerAnimator.SetBool("isMoveRight", isMoveRight);
             
         }
 
