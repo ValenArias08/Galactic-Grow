@@ -8,8 +8,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Stats")]
     // Player / Game Stats
-    public int playerLifeCounter = 3;
+    private int playerLifeCounter;
     public int playerTotalScore = 0;
+    
 
     private PauseManager pauseManager;
 
@@ -30,7 +31,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         pauseManager = GetComponent<PauseManager>();
-    }
+        playerLifeCounter = 3;
+}
 
     //Metodos
 
@@ -38,14 +40,9 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int score)
     {
+
         playerTotalScore += score;
         Debug.Log("Total Score: " + playerTotalScore);
-    }
-
-    //Adding score points
-    private void AddScorePoints()
-    {
-        // score logic
     }
 
     // Player getting damaged / game over (only during Night phase)
@@ -57,8 +54,6 @@ public class GameManager : MonoBehaviour
             GameOverRestart();
         }
     }
-
-
 
     // Manejo de los estados del juego:
 
@@ -84,7 +79,7 @@ public class GameManager : MonoBehaviour
         {
             pauseManager.MainMenu(sceneName);
         }
-        if (sceneName == "MainMenu")
+        if (sceneName == "MainScene")
         {
             // Handle additional Main Menu logic if needed
             if (Instance != null)
@@ -103,6 +98,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOverRestart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("MainScene");
+        Debug.Log("Game Over");
     }
 }

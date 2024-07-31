@@ -49,27 +49,54 @@ public class PlayerAttack : MonoBehaviour
             colliderPoints[2] = new Vector2(0, 0.5f);
         }
 
+        //Ataque arriba-derecha
+        if (attackDirection == new Vector2(0.71f, 0.71f))
+        {
+            colliderPoints[1] = new Vector2(0.8f, 0.5f);
+            colliderPoints[2] = new Vector2(1.5f, -0.2f);
+        }
 
-        //Ataque darecha
+        //Ataque derecha
         if (attackDirection == new Vector2(1, 0))
         {
             colliderPoints[1] = new Vector2(1.5f, 0);
             colliderPoints[2] = new Vector2(1.5f, -1);
         }
 
-
-        //Ataqeu izquierda
-        if (attackDirection == new Vector2(0, -1))
+        //Ataque abajo-derecha
+        if (attackDirection == new Vector2(0.71f, -0.71f))
         {
-            colliderPoints[1] = new Vector2(1, -1.5f);
-            colliderPoints[2] = new Vector2(0, -1.5f);
+            colliderPoints[1] = new Vector2(1.5f, -0.8f);
+            colliderPoints[2] = new Vector2(0.8f, -1.5f);
         }
 
         //Ataque abajo
+        if (attackDirection == new Vector2(0, -1))
+        {
+            colliderPoints[1] = new Vector2(0, -1.5f);
+            colliderPoints[2] = new Vector2(1, -1.5f);
+        }
+
+        //Ataque abajo-izquierda
+        if (attackDirection == new Vector2(-0.71f, -0.71f))
+        {
+            colliderPoints[1] = new Vector2(0.2f, -1.5f);
+            colliderPoints[2] = new Vector2(-0.5f, -0.8f);
+        }
+
+        //Ataque izquierda
         if (attackDirection == new Vector2(-1, 0))
         {
             colliderPoints[1] = new Vector2(-0.5f, 0);
             colliderPoints[2] = new Vector2(-0.5f, -1);
+        }
+        
+
+        //Ataque arriba-izquierda
+        if (attackDirection == new Vector2(-0.71f, 0.71f))
+        {
+            colliderPoints[1] = new Vector2(-0.5f, -0.2f);
+            colliderPoints[2] = new Vector2(0.2f, 0.5f);
         }
 
         //Ataque en idle

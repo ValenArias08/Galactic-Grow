@@ -5,9 +5,11 @@ using UnityEngine.InputSystem;
 
 public class TopDownController : MonoBehaviour
 {
-    
-    
-    
+
+    private int enemyDamage = 1;
+
+    private int currentPlayerHealth;
+
     // Character components
 
     public Rigidbody2D rBody;
@@ -38,8 +40,6 @@ public class TopDownController : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
- 
-
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
@@ -55,7 +55,16 @@ public class TopDownController : MonoBehaviour
     public void OnMovement(InputAction.CallbackContext context)
     {
         inputValue = context.ReadValue<Vector2>();
-        //Debug.Log(inputValue);
+        Debug.Log(inputValue);
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            GameManager.Instance.LoseLife();
+            Debug.Log(GameManager.Instance.playerTotalScore);
+        }
+        
+    }
 }
