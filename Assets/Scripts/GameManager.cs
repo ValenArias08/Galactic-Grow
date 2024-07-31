@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Stats")]
     // Player / Game Stats
-    private int playerLifeCounter;
-    public int playerTotalScore = 0;
+    
+    public int playerTotalScore;
     
 
     private PauseManager pauseManager;
@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         pauseManager = GetComponent<PauseManager>();
-        playerLifeCounter = 3;
-}
+        playerTotalScore = 0;
+    }
 
     //Metodos
 
@@ -46,14 +46,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Player getting damaged / game over (only during Night phase)
-    public void LoseLife()
-    {
-        playerLifeCounter--;
-        if (playerLifeCounter == 0)
-        {
-            GameOverRestart();
-        }
-    }
+    
 
     // Manejo de los estados del juego:
 
