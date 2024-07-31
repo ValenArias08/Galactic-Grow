@@ -40,14 +40,9 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int score)
     {
+
         playerTotalScore += score;
         Debug.Log("Total Score: " + playerTotalScore);
-    }
-
-    //Adding score points
-    private void AddScorePoints()
-    {
-        // score logic
     }
 
     // Player getting damaged / game over (only during Night phase)

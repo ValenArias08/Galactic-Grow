@@ -40,8 +40,6 @@ public class TopDownController : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
- 
-
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
@@ -57,7 +55,7 @@ public class TopDownController : MonoBehaviour
     public void OnMovement(InputAction.CallbackContext context)
     {
         inputValue = context.ReadValue<Vector2>();
-        //Debug.Log(inputValue);
+        Debug.Log(inputValue);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -65,7 +63,7 @@ public class TopDownController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             GameManager.Instance.LoseLife();
-
+            Debug.Log(GameManager.Instance.playerTotalScore);
         }
         
     }
