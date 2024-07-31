@@ -41,19 +41,24 @@ public class PlayerAttack : MonoBehaviour
 
     private void ChangePosition()
     {
+        float toleranceDistance = 0.1f; //Cantidad que indica cuanto puede diferir
 
         //Ataque arriba
-        if (attackDirection == new Vector2 (0, 1))
+        if (attackDirection == new Vector2(0, 1))
         {
             colliderPoints[1] = new Vector2(1, 0.5f);
             colliderPoints[2] = new Vector2(0, 0.5f);
         }
 
         //Ataque arriba-derecha
-        if (attackDirection == new Vector2(0.71f, 0.71f))
+
+        /*Normalizamos las magnitudes y la comparamos con la distancia de tolerancia con el fin de que se cumpla la condicion
+         aun cuando no sea exactamente 0.71f, sino un numero lo suficientemente cerca*/
+        if (Mathf.Abs(attackDirection.x - 0.71f) < toleranceDistance && Mathf.Abs(attackDirection.y - 0.71f) < toleranceDistance)
         {
             colliderPoints[1] = new Vector2(0.8f, 0.5f);
             colliderPoints[2] = new Vector2(1.5f, -0.2f);
+            attackCollider.points = colliderPoints;
         }
 
         //Ataque derecha
@@ -64,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         //Ataque abajo-derecha
-        if (attackDirection == new Vector2(0.71f, -0.71f))
+        if (Mathf.Abs(attackDirection.x - 0.71f) < toleranceDistance && Mathf.Abs(attackDirection.y + 0.71f) < toleranceDistance)
         {
             colliderPoints[1] = new Vector2(1.5f, -0.8f);
             colliderPoints[2] = new Vector2(0.8f, -1.5f);
@@ -78,7 +83,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         //Ataque abajo-izquierda
-        if (attackDirection == new Vector2(-0.71f, -0.71f))
+        if (Mathf.Abs(attackDirection.x + 0.71f) < toleranceDistance && Mathf.Abs(attackDirection.y + 0.71f) < toleranceDistance)
         {
             colliderPoints[1] = new Vector2(0.2f, -1.5f);
             colliderPoints[2] = new Vector2(-0.5f, -0.8f);
@@ -90,10 +95,10 @@ public class PlayerAttack : MonoBehaviour
             colliderPoints[1] = new Vector2(-0.5f, 0);
             colliderPoints[2] = new Vector2(-0.5f, -1);
         }
-        
+
 
         //Ataque arriba-izquierda
-        if (attackDirection == new Vector2(-0.71f, 0.71f))
+        if (Mathf.Abs(attackDirection.x + 0.71f) < toleranceDistance && Mathf.Abs(attackDirection.y - 0.71f) < toleranceDistance)
         {
             colliderPoints[1] = new Vector2(-0.5f, -0.2f);
             colliderPoints[2] = new Vector2(0.2f, 0.5f);
