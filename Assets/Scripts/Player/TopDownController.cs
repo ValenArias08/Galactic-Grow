@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -49,13 +47,15 @@ public class TopDownController : MonoBehaviour
     void Update()
     {
         inputValue = playerInput.action.ReadValue<Vector2>(); // Gets the input reference value for the movement method
+
+
         rBody.velocity = inputValue * playerSpeed;
     }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
         inputValue = context.ReadValue<Vector2>();
-        Debug.Log(inputValue);
+        //Debug.Log(inputValue);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

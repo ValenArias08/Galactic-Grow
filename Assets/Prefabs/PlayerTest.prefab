@@ -105,7 +105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &92965642906946368
 Transform:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 6311470101631200431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.076, y: -1.28, z: 0}
-  m_LocalScale: {x: 0.014279574, y: 0.016726391, z: 1}
+  m_LocalScale: {x: 0.0122704385, y: 0.014061877, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1530876273011153931}
@@ -156,7 +156,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.014688551, y: 0.019397318}
+  m_Offset: {x: 1.4066658, y: -0.29088593}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -167,7 +167,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.60023475, y: 0.6488217}
+  m_Size: {x: 48.81581, y: 71.81622}
   m_EdgeRadius: 0
 --- !u!114 &6089109281234421495
 MonoBehaviour:
@@ -327,3 +327,6 @@ MonoBehaviour:
   playerSpeed: 2
   fuerzaSalto: 0
   mirandoDerecha: 1
+  playerAnimator: {fileID: 4408480153281760443}
+  isMoveRight: 0
+  isMoveLeft: 0
