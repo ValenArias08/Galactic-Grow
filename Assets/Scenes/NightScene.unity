@@ -650,6 +650,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1492427517692551003, guid: 0ea94893e7c18a7469c4af5ea19e9024, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492427517692551003, guid: 0ea94893e7c18a7469c4af5ea19e9024, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
       value: 1
       objectReference: {fileID: 0}
@@ -853,7 +857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4160843739868644980, guid: bc72afb8d786e2f41be2174a1f2f9c03, type: 3}
       propertyPath: m_Constraints
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4160843739868644982, guid: bc72afb8d786e2f41be2174a1f2f9c03, type: 3}
       propertyPath: m_RootOrder
