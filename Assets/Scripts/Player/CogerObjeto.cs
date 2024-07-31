@@ -1,51 +1,59 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CogerObjeto : MonoBehaviour
 {
     public GameObject handPoint;
+    public bool isHandObject;
+    public bool canGrab;
     private GameObject pickedObject = null;
 
+    public InputActionReference playerInput;
 
-private void Update() {
 
+    private void Start()
+    {
+        isHandObject = false;
 
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Debug.Log("Presionando G");
-        }
+        playerInput.action.performed += Grab;
+        playerInput.action.canceled += Grab;
+    }
 
-        if (pickedObject != null)
-        {
-            if (Input.GetKey("g"))
-            {
-                Debug.Log("Presionando G");
-                pickedObject.GetComponent<Rigidbody2D>().isKinematic = false;
-
-                pickedObject.gameObject.transform.SetParent(null);
-
-                pickedObject = null;
-
-            }
-        }
-
+    private void OnDestroy()
+    {
+        playerInput.action.performed -= Grab;
+        playerInput.action.canceled -= Grab;
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Objeto"))
+        if (other.gameObject.CompareTag("Objeto") && pickedObject == null)
         {
-            Debug.Log("Colision objeto");
-            if (Input.GetKey("g") && pickedObject == null)
+            if (playerInput.action.IsPressed())
             {
                 other.GetComponent<Rigidbody2D>().isKinematic = true;
-
                 other.transform.position = handPoint.transform.position;
-
-                other.gameObject.transform.SetParent(handPoint.gameObject.transform);
-
+                other.gameObject.transform.SetParent(handPoint.transform);
                 pickedObject = other.gameObject;
+            }
+        }
+    }
+
+
+    public void Grab(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Presionando G");
+        }
+        else if (context.canceled)
+        {
+            Debug.Log("Soltando G");
+            if (pickedObject != null)
+            {
+                pickedObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                pickedObject.transform.SetParent(null);
+                pickedObject = null;
             }
         }
     }
