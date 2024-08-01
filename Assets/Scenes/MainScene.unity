@@ -291,9 +291,81 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1117002156322206692, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117002156322206692, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117002156322206692, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117002156322206692, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117002156322206692, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117002156322206692, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1984468823143782818, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137428915080662257, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137428915080662257, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137428915080662257, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137428915080662257, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137428915080662257, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137428915080662257, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297330306034400028, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297330306034400028, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297330306034400028, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297330306034400028, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297330306034400028, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297330306034400028, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8669181964694698903, guid: 23d0a0a6b525eb94fa538be93bc76562, type: 3}
       propertyPath: m_Pivot.x
@@ -445,10 +517,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3341851117243163972, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8330559132976294617, guid: 4cde6dc562627b64f85ed4c6c396c188, type: 3}
       propertyPath: m_Name
       value: GameManager
