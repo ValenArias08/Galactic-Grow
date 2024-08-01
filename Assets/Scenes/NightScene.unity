@@ -2486,6 +2486,14 @@ MonoBehaviour:
   playerInput: {fileID: 1458285710080701131, guid: d433c7c062ab3964ca5b229c8eb621d3, type: 3}
   attackCollider: {fileID: 1013453322}
   playerAnimator: {fileID: 0}
+  slashUp: {fileID: 0}
+  slashUpRight: {fileID: 0}
+  slashUpLeft: {fileID: 0}
+  slashDown: {fileID: 0}
+  slashDownRight: {fileID: 0}
+  slashDownLeft: {fileID: 0}
+  slashRight: {fileID: 0}
+  slashLeft: {fileID: 0}
   isAttacking: 0
   isHitted: 0
   attackPrefab: {fileID: 1013453320}
@@ -8146,13 +8154,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1476320505, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 754886498575646412, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
       propertyPath: m_Name
       value: PlayerNightTest
-      objectReference: {fileID: 0}
-    - target: {fileID: 754886498575646412, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3841885342645304582, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
       propertyPath: lifeCounter1
@@ -8166,30 +8174,6 @@ PrefabInstance:
       propertyPath: lifeCounter3
       value: 
       objectReference: {fileID: 1031087192}
-    - target: {fileID: 5573729705491663773, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5573729705491663773, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: 2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5573729705491663773, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5573729705491663773, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: 2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5573729705491663773, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: -1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5573729705491663774, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9161763171733723286, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -8234,8 +8218,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3640504751003973193, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e01f80125930f447b2d30bc22e93812, type: 3}
 --- !u!1 &2070710923
 GameObject:

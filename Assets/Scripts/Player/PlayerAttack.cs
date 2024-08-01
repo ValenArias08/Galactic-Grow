@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
 
     //Animations
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private GameObject slashUp, slashUpRight, slashUpLeft, slashDown, slashDownRight, slashDownLeft, slashRight, slashLeft;
     public bool isAttacking, isHitted;
 
     private Vector2 direction;
@@ -24,6 +25,16 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         attackPrefab.SetActive(false);
+
+        slashDown.SetActive(false);
+        slashLeft.SetActive(false);
+        slashRight.SetActive(false);
+        slashUp.SetActive(false);
+        slashUpLeft.SetActive(false);
+        slashUpRight.SetActive(false);
+        slashDownLeft.SetActive(false);
+        slashDownRight.SetActive(false);
+
         colliderPoints = attackCollider.points;
     }
 
@@ -95,6 +106,7 @@ public class PlayerAttack : MonoBehaviour
             colliderPoints[2] = new Vector2(-0.5f, 0.7f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashUp.SetActive(true);
         }
 
         //Ataque arriba-derecha
@@ -108,6 +120,7 @@ public class PlayerAttack : MonoBehaviour
             attackCollider.points = colliderPoints;
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashUpRight.SetActive(true);
         }
 
         //Ataque derecha
@@ -117,6 +130,7 @@ public class PlayerAttack : MonoBehaviour
             colliderPoints[2] = new Vector2(2.2f, -1.2f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashRight.SetActive(true);
         }
 
         //Ataque abajo-derecha
@@ -126,6 +140,7 @@ public class PlayerAttack : MonoBehaviour
             colliderPoints[2] = new Vector2(1, -1.7f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashDownRight.SetActive(true);
         }
 
         //Ataque abajo
@@ -135,6 +150,7 @@ public class PlayerAttack : MonoBehaviour
             colliderPoints[2] = new Vector2(1.5f, -1.7f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashDown.SetActive(true);
         }
 
         //Ataque abajo-izquierda
@@ -144,6 +160,7 @@ public class PlayerAttack : MonoBehaviour
             colliderPoints[2] = new Vector2(-1.2f, -0.8f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashDownLeft.SetActive(true);
         }
 
         //Ataque izquierda
@@ -153,6 +170,7 @@ public class PlayerAttack : MonoBehaviour
             colliderPoints[2] = new Vector2(-1.2f, -1.2f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashLeft.SetActive(true);
         }
 
 
@@ -163,6 +181,7 @@ public class PlayerAttack : MonoBehaviour
             colliderPoints[2] = new Vector2(0, 0.7f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashUpLeft.SetActive(true);
         }
 
         //Ataque en idle
@@ -172,6 +191,7 @@ public class PlayerAttack : MonoBehaviour
             colliderPoints[2] = new Vector2(2.2f, -1.2f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashRight.SetActive(true);
         }
 
         attackCollider.points = colliderPoints;
@@ -186,6 +206,16 @@ public class PlayerAttack : MonoBehaviour
     private void EndAttack()
     {
         isAttacking = false;
+
+        slashDown.SetActive(false);
+        slashLeft.SetActive(false);
+        slashRight.SetActive(false);
+        slashUp.SetActive(false);
+        slashUpLeft.SetActive(false);
+        slashUpRight.SetActive(false);
+        slashDownLeft.SetActive(false);
+        slashDownRight.SetActive(false);
+
         playerAnimator.SetBool("isAttacking", isAttacking);
         attackPrefab.SetActive(false);
     }
