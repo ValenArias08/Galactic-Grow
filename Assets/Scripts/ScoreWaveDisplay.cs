@@ -38,6 +38,6 @@ public class ScoreWaveDisplay : MonoBehaviour
     public void UpdateWaveValue()
     {
         
-        waveTextObject.text = "Night : " + GameManager.Instance.night;
+        //waveTextObject.text = "Night : " + GameManager.Instance.night;
     }
 }
