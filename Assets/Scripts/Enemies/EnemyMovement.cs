@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
         enemyRb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
-        player = GameObject.Find("Player");
+        player = GameObject.Find("PlayerNightTest");
         incomingDamage = PlayerAttack.playerDamage;
     }
 

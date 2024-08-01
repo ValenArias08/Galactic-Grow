@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ccd5f7fa47992d24db89a02b817d9f93
+guid: d106b57e371189943a8a5dd081f8ad75
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: marciano-idle_0
+      name: marciano_2 (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,17 +131,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 148af47713efd4e488321a1a658ab875
-      internalID: -1645443038
+      spriteID: 311f663473efac94080e5e11590696af
+      internalID: -830475179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marciano-idle_1
+      name: marciano_2 (1)_1
       rect:
         serializedVersion: 2
-        x: 75
+        x: 70
         y: 0
         width: 70
         height: 72
@@ -152,17 +152,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f64cf66afb07814789c3f0abe9802e8
-      internalID: 1505710617
+      spriteID: ba766f1700e015848948850f2b0d6e0f
+      internalID: 1800184845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marciano-idle_2
+      name: marciano_2 (1)_2
       rect:
         serializedVersion: 2
-        x: 150
+        x: 140
         y: 0
         width: 70
         height: 72
@@ -173,17 +173,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5cc91e3ee4f5764d8d7af99de06d735
-      internalID: -73883235
+      spriteID: a5261168807ef8a479efd9e8acef30ee
+      internalID: -1039239221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marciano-idle_3
+      name: marciano_2 (1)_3
       rect:
         serializedVersion: 2
-        x: 225
+        x: 210
         y: 0
         width: 70
         height: 72
@@ -194,17 +194,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03d6fa15aeebd474f907400e6469a59c
-      internalID: 690668591
+      spriteID: c253234a08de1aa40af656b6b8d7fa53
+      internalID: -1097329225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marciano-idle_4
+      name: marciano_2 (1)_4
       rect:
         serializedVersion: 2
-        x: 300
+        x: 286
         y: 0
         width: 70
         height: 72
@@ -215,17 +215,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e5cae4dad2e4b1458e5ebdf17bbced2
-      internalID: 1065300793
+      spriteID: 6943d1057c8dffe4ebbb11f343472ccf
+      internalID: 1152575179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marciano-idle_5
+      name: marciano_2 (1)_5
       rect:
         serializedVersion: 2
-        x: 375
+        x: 363
         y: 0
         width: 70
         height: 72
@@ -236,17 +236,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 352ff8b8e5bc2da42b9760313a453e6c
-      internalID: -2082964072
+      spriteID: dc687bf5d0ba2834ba25e472880330c4
+      internalID: 1699194939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marciano-idle_6
+      name: marciano_2 (1)_6
       rect:
         serializedVersion: 2
-        x: 450
+        x: 432
         y: 0
         width: 70
         height: 72
@@ -257,8 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bae4ba2432082f4429aee69e36a48e06
-      internalID: 255849173
+      spriteID: a4dd5d82c6332564ca21aac75c748277
+      internalID: -1904611337
       vertices: []
       indices: 
       edges: []
@@ -274,13 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      marciano-idle_0: -1645443038
-      marciano-idle_1: 1505710617
-      marciano-idle_2: -73883235
-      marciano-idle_3: 690668591
-      marciano-idle_4: 1065300793
-      marciano-idle_5: -2082964072
-      marciano-idle_6: 255849173
+      marciano_2 (1)_0: -830475179
+      marciano_2 (1)_1: 1800184845
+      marciano_2 (1)_2: -1039239221
+      marciano_2 (1)_3: -1097329225
+      marciano_2 (1)_4: 1152575179
+      marciano_2 (1)_5: 1699194939
+      marciano_2 (1)_6: -1904611337
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

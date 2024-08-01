@@ -94,4 +94,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainScene");
         Debug.Log("Game Over");
     }
+
+    public void ResetScore()
+    {
+        playerTotalScore = 0;
+    }
 }

@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
 
     //Animations
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private GameObject slashUp, slashUpRight, slashUpLeft, slashDown, slashDownRight, slashDownLeft, slashRight, slashLeft;
     public bool isAttacking, isHitted;
 
     private Vector2 direction;
@@ -24,6 +25,16 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         attackPrefab.SetActive(false);
+
+        slashDown.SetActive(false);
+        slashLeft.SetActive(false);
+        slashRight.SetActive(false);
+        slashUp.SetActive(false);
+        slashUpLeft.SetActive(false);
+        slashUpRight.SetActive(false);
+        slashDownLeft.SetActive(false);
+        slashDownRight.SetActive(false);
+
         colliderPoints = attackCollider.points;
     }
 
@@ -91,10 +102,11 @@ public class PlayerAttack : MonoBehaviour
         //Ataque arriba
         if (direction == new Vector2(0, 1))
         {
-            colliderPoints[1] = new Vector2(1, 0.5f);
-            colliderPoints[2] = new Vector2(0, 0.5f);
+            colliderPoints[1] = new Vector2(1.5f,0.7f);
+            colliderPoints[2] = new Vector2(-0.5f, 0.7f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashUp.SetActive(true);
         }
 
         //Ataque arriba-derecha
@@ -103,75 +115,83 @@ public class PlayerAttack : MonoBehaviour
          aun cuando no sea exactamente 0.71f, sino un numero lo suficientemente cerca*/
         if (Mathf.Abs(direction.x - 0.71f) < toleranceDistance && Mathf.Abs(direction.y - 0.71f) < toleranceDistance)
         {
-            colliderPoints[1] = new Vector2(0.8f, 0.5f);
-            colliderPoints[2] = new Vector2(1.5f, -0.2f);
+            colliderPoints[1] = new Vector2(0.9f, 0.7f);
+            colliderPoints[2] = new Vector2(2.2f, -0.2f);
             attackCollider.points = colliderPoints;
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashUpRight.SetActive(true);
         }
 
         //Ataque derecha
         if (direction == new Vector2(1, 0))
         {
-            colliderPoints[1] = new Vector2(1.5f, 0);
-            colliderPoints[2] = new Vector2(1.5f, -1);
+            colliderPoints[1] = new Vector2(2.2f, 0.2f);
+            colliderPoints[2] = new Vector2(2.2f, -1.2f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashRight.SetActive(true);
         }
 
         //Ataque abajo-derecha
         if (Mathf.Abs(direction.x - 0.71f) < toleranceDistance && Mathf.Abs(direction.y + 0.71f) < toleranceDistance)
         {
-            colliderPoints[1] = new Vector2(1.5f, -0.8f);
-            colliderPoints[2] = new Vector2(0.8f, -1.5f);
+            colliderPoints[1] = new Vector2(2.2f, -0.8f);
+            colliderPoints[2] = new Vector2(1, -1.7f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashDownRight.SetActive(true);
         }
 
         //Ataque abajo
         if (direction == new Vector2(0, -1))
         {
-            colliderPoints[1] = new Vector2(0, -1.5f);
-            colliderPoints[2] = new Vector2(1, -1.5f);
+            colliderPoints[1] = new Vector2(-0.5f, -1.7f);
+            colliderPoints[2] = new Vector2(1.5f, -1.7f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashDown.SetActive(true);
         }
 
         //Ataque abajo-izquierda
         if (Mathf.Abs(direction.x + 0.71f) < toleranceDistance && Mathf.Abs(direction.y + 0.71f) < toleranceDistance)
         {
-            colliderPoints[1] = new Vector2(0.2f, -1.5f);
-            colliderPoints[2] = new Vector2(-0.5f, -0.8f);
+            colliderPoints[1] = new Vector2(0, -1.7f);
+            colliderPoints[2] = new Vector2(-1.2f, -0.8f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashDownLeft.SetActive(true);
         }
 
         //Ataque izquierda
         if (direction == new Vector2(-1, 0))
         {
-            colliderPoints[1] = new Vector2(-0.5f, 0);
-            colliderPoints[2] = new Vector2(-0.5f, -1);
+            colliderPoints[1] = new Vector2(-1.2f, 0.2f);
+            colliderPoints[2] = new Vector2(-1.2f, -1.2f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashLeft.SetActive(true);
         }
 
 
         //Ataque arriba-izquierda
         if (Mathf.Abs(direction.x + 0.71f) < toleranceDistance && Mathf.Abs(direction.y - 0.71f) < toleranceDistance)
         {
-            colliderPoints[1] = new Vector2(-0.5f, -0.2f);
-            colliderPoints[2] = new Vector2(0.2f, 0.5f);
+            colliderPoints[1] = new Vector2(-1.2f, -0.2f);
+            colliderPoints[2] = new Vector2(0, 0.7f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashUpLeft.SetActive(true);
         }
 
         //Ataque en idle
         if (direction == new Vector2(0, 0))
         {
-            colliderPoints[1] = new Vector2(1, -1.5f);
-            colliderPoints[2] = new Vector2(0, -1.5f);
+            colliderPoints[1] = new Vector2(2.2f, 0.2f);
+            colliderPoints[2] = new Vector2(2.2f, -1.2f);
             isAttacking = true;
             playerAnimator.SetBool("isAttacking", isAttacking);
+            slashRight.SetActive(true);
         }
 
         attackCollider.points = colliderPoints;
@@ -186,6 +206,16 @@ public class PlayerAttack : MonoBehaviour
     private void EndAttack()
     {
         isAttacking = false;
+
+        slashDown.SetActive(false);
+        slashLeft.SetActive(false);
+        slashRight.SetActive(false);
+        slashUp.SetActive(false);
+        slashUpLeft.SetActive(false);
+        slashUpRight.SetActive(false);
+        slashDownLeft.SetActive(false);
+        slashDownRight.SetActive(false);
+
         playerAnimator.SetBool("isAttacking", isAttacking);
         attackPrefab.SetActive(false);
     }
