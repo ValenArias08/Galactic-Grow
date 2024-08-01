@@ -6,6 +6,8 @@ public class DestroyOnCollision : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Algo entró en el trigger: " + other.gameObject.name);
+        
         // Verifica si el objeto que entra en el trigger tiene el tag "Objeto"
         if (other.CompareTag("Objeto"))
         {

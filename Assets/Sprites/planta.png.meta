@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -122,10 +122,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 38
+        width: 37
         height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: planta_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 37
         y: 0
-        width: 38
+        width: 37
         height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: planta_2
       rect:
         serializedVersion: 2
-        x: 76
+        x: 74
         y: 0
-        width: 38
+        width: 37
         height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,12 +183,12 @@ TextureImporter:
       name: planta_3
       rect:
         serializedVersion: 2
-        x: 114
+        x: 111
         y: 0
-        width: 38
+        width: 37
         height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,12 +204,12 @@ TextureImporter:
       name: planta_4
       rect:
         serializedVersion: 2
-        x: 152
+        x: 149
         y: 0
-        width: 38
+        width: 37
         height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: planta_5
       rect:
         serializedVersion: 2
-        x: 190
+        x: 187
         y: 0
-        width: 38
+        width: 37
         height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -246,12 +246,12 @@ TextureImporter:
       name: planta_6
       rect:
         serializedVersion: 2
-        x: 228
+        x: 225
         y: 0
-        width: 38
+        width: 37
         height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,12 +267,12 @@ TextureImporter:
       name: planta_7
       rect:
         serializedVersion: 2
-        x: 266
+        x: 265
         y: 0
-        width: 38
+        width: 37
         height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -280,6 +280,27 @@ TextureImporter:
       bones: []
       spriteID: 3255d96256f085742ab9cac129c1d002
       internalID: -2116739926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planta_8
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 0
+        width: 37
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08bd59bafa73b3458ae2bd4f430c512
+      internalID: 605605706
       vertices: []
       indices: 
       edges: []
@@ -303,6 +324,7 @@ TextureImporter:
       planta_5: 686004390
       planta_6: 612913550
       planta_7: -2116739926
+      planta_8: 605605706
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
