@@ -880,7 +880,7 @@ Transform:
   m_GameObject: {fileID: 754886498575646412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.03, y: 3.41, z: 0}
-  m_LocalScale: {x: 0.012, y: 0.014, z: 1}
+  m_LocalScale: {x: 0.5, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5215561610933437771}
@@ -1096,6 +1096,7 @@ MonoBehaviour:
   fullHeart: {fileID: 791006889, guid: 674a06fbfe36ac04e8d671a090cb882f, type: 3}
   emptyHeart: {fileID: -1102190603, guid: 674a06fbfe36ac04e8d671a090cb882f, type: 3}
   attackPoint: {fileID: 0}
+  playerSpeed: 75
   movementInput: {x: 0, y: 0}
 --- !u!114 &7281616746519767304
 MonoBehaviour:
