@@ -22,6 +22,14 @@ public class WaveManager : MonoBehaviour
         {
             Debug.LogError("SpawnerAhoraSi no encontrado en la escena.");
         }
+
+        // Verifica si el GameManager ya tiene datos para esta oleada
+        if (GameManager.Instance != null)
+        {
+            currentWave = GameManager.Instance.waveNumber;
+            enemiesPerWave = GameManager.Instance.enemiesWave;
+        }
+
         StartNextWave();
 
         pausaManejo = FindObjectOfType<PauseManager>();
@@ -36,8 +44,6 @@ public class WaveManager : MonoBehaviour
         // Reinicia el conteo de enemigos eliminados
         killedEnemiesCount = 0;
 
-        //Aqui va el codigo que se encarga de aumentar un numero n de enemigos por oleada
-        enemiesPerWave = Mathf.Min(baseEnemiesPerWave + (currentWave - 1) * enemiesPlusPerWave, maxEnemiesPerWave);
         if (spawner != null)
         {
             spawner.StartNextWave();

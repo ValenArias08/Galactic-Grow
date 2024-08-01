@@ -74,7 +74,7 @@ public class PauseManager : MonoBehaviour
         {
             pauseCanvas.SetActive(false);
         }
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        GameManager.Instance.LoadScene(sceneName);
     }
 
     // Reiniciar la Escena Actual
@@ -82,7 +82,7 @@ public class PauseManager : MonoBehaviour
     {
         HideLoseCanvas();
         HideWinCanvas();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("DayScene");
+        GameManager.Instance.LoadScene("DayScene");
         GameManager.Instance.ResetScore();
 
         Time.timeScale = 1;
@@ -99,7 +99,7 @@ public class PauseManager : MonoBehaviour
     {
         HideLoseCanvas();
         HideWinCanvas();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("DayScene");
+        GameManager.Instance.LoadScene("DayScene");
         Debug.Log("Nueva oleada cargada");
 
         Time.timeScale = 1;

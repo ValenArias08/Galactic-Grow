@@ -8,6 +8,7 @@ public class ScoreWaveDisplay : MonoBehaviour
 
     public TextMeshProUGUI scoreTextObject;
     public int scoreValue;
+    
 
     public TextMeshProUGUI waveTextObject;
 
@@ -25,6 +26,8 @@ public class ScoreWaveDisplay : MonoBehaviour
         scoreValue = GameManager.Instance.GetScore();
         UpdateScoreValue();
 
+
+
     }
 
     public void UpdateScoreValue()
@@ -35,6 +38,6 @@ public class ScoreWaveDisplay : MonoBehaviour
     public void UpdateWaveValue()
     {
         
-        waveTextObject.text = "Night : ";
+        waveTextObject.text = "Night : " + GameManager.Instance.night;
     }
 }
