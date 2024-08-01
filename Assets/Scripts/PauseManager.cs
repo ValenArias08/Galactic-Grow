@@ -95,6 +95,21 @@ public class PauseManager : MonoBehaviour
 
     }
 
+    public void NextScene()
+    {
+        HideLoseCanvas();
+        HideWinCanvas();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("DayScene");
+        Debug.Log("Nueva oleada cargada");
+
+        Time.timeScale = 1;
+        if (pauseCanvas != null)
+        {
+            pauseCanvas.SetActive(false);
+        }
+
+    }
+
     //Canvas de Victoria
 
     public void ShowWinCanvas()

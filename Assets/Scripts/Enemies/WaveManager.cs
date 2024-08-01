@@ -10,7 +10,10 @@ public class WaveManager : MonoBehaviour
     public int spawnedEnemiesCount = 0;  // Enemigos actuales
     public int killedEnemiesCount = 0;  // Enemigos derrotados
 
+    private PauseManager pausaManejo;
     private SpawnerAhoraSi spawner;
+
+    private int playerScore;
 
     void Start()
     {
@@ -20,6 +23,8 @@ public class WaveManager : MonoBehaviour
             Debug.LogError("SpawnerAhoraSi no encontrado en la escena.");
         }
         StartNextWave();
+
+        pausaManejo = FindObjectOfType<PauseManager>();
     }
 
     //Comenzar una nueva oleada
@@ -56,15 +61,18 @@ public class WaveManager : MonoBehaviour
 
     // Finaliza la oleada actual y prepara la siguiente
     void EndWave()
-    {   
+    {
         // Aqui se puede manejar todo lo relacionado al terminar una oleada
-        Debug.Log("Oleada terminada");
+        playerScore = GameManager.Instance.playerTotalScore;
+        Debug.Log("Oleada terminada, puntuación final: " + playerScore);
 
         //Iniciar la siguiente oleada
         // Se podria usar un Invoke para ponerle un tiempo de espera. Algo asi:
         //Invoke("StartNextWave", 5f");
 
-        StartNextWave();
+        //StartNextWave();
+        
+        pausaManejo.NextScene();
     }
 
 }
