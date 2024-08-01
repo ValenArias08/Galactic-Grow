@@ -51,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8330559132976294619
 Transform:
   m_ObjectHideFlags: 0
@@ -96,6 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTotalScore: 0
+  night: 0
+  waveNumber: 0
+  enemiesWave: 0
 --- !u!1001 &1560078791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -198,6 +201,10 @@ PrefabInstance:
     - target: {fileID: 1635342609213260786, guid: fc3a93805512a414698748696e77d669, type: 3}
       propertyPath: m_Name
       value: CanvasWinGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1635342609213260786, guid: fc3a93805512a414698748696e77d669, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc3a93805512a414698748696e77d669, type: 3}
