@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1894513311649014556}
   - component: {fileID: 1894513311649014559}
+  - component: {fileID: 1906920538}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -44,14 +45,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8491d2b3350a16c48b612eeb15821f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4160843739868644979, guid: bc72afb8d786e2f41be2174a1f2f9c03, type: 3}
-  maxInstance: 10
-  interval: 2
-  spawnPos:
-  - {x: 3, y: 1}
-  - {x: 0, y: -5}
-  - {x: 3.5, y: -4}
-  - {x: 7.5, y: 1.5}
-  - {x: -5, y: 0.5}
-  - {x: -7, y: -2}
-  - {x: 3.5, y: -4}
+  enemyPrefab: {fileID: 6727620386720988397, guid: f41677e4a486d694ea520658c7885bb8, type: 3}
+  spawnCerca:
+  - {x: 2.5, y: 1.3}
+  - {x: -2.3, y: 0.5}
+  spawnMedio:
+  - {x: -7.2, y: -0.3}
+  - {x: -3.7, y: 2.1}
+  - {x: 1, y: -2.4}
+  - {x: 3.5, y: -2.2}
+  - {x: 7.2, y: -0.1}
+  spawnLejos:
+  - {x: 11, y: 0}
+  - {x: 10, y: -6.5}
+  - {x: 3.7, y: -6.3}
+  - {x: -2.2, y: -5.9}
+  - {x: -10, y: -5.5}
+  - {x: -11, y: -6.1}
+  - {x: -10, y: 1}
+--- !u!114 &1906920538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894513311649014558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596e5e1d6330f1d4dbade6f68cca0ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWave: 0
+  baseEnemiesPerWave: 5
+  maxEnemiesPerWave: 30
+  enemiesPerWave: 10
+  spawnedEnemiesCount: 0
+  killedEnemiesCount: 0

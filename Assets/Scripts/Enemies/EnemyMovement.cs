@@ -18,6 +18,9 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D enemyRb;
     private Color originalColor;
 
+    private WaveManager waveManager;
+
+
     private int incomingDamage;
 
     void Start()
@@ -27,6 +30,12 @@ public class EnemyMovement : MonoBehaviour
         originalColor = spriteRenderer.color;
         player = GameObject.Find("PlayerNightTest");
         incomingDamage = PlayerAttack.playerDamage;
+
+        waveManager = FindObjectOfType<WaveManager>();
+        if (waveManager == null)
+        {
+            Debug.LogError("WaveManager no encontrado en la escena.");
+        }
     }
 
     void Update()
@@ -55,6 +64,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (enemyHealth <= 0 && GameManager.Instance != null)
         {
+            waveManager.EnemyKilled();
             GameManager.Instance.AddScore(enemyScorePoints);
             Destroy(gameObject);
 
