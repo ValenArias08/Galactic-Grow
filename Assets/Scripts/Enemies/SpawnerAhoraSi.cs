@@ -4,26 +4,51 @@ using UnityEngine;
 
 public class SpawnerAhoraSi : MonoBehaviour
 {   public GameObject enemyPrefab;
-    [SerializeField] public int maxInstance = 40;
     private float interval01;
     private float interval02;
     private float interval03;
     
-    private int currentInstance = 0;
+    //private int currentInstance = 0;
     [SerializeField] private List<Vector2> spawnCerca;
     [SerializeField] private List<Vector2> spawnMedio;
     [SerializeField] private List<Vector2> spawnLejos;
 
+    private WaveManager waveManager;
+
+    private void Awake()
+    {
+        waveManager = FindObjectOfType<WaveManager>();
+        if (waveManager == null)
+        {
+            Debug.LogError("WaveManager no encontrado en la escena.");
+        }
+    }
+
+    private void Start()
+    {
+        
+    }
+
+    public void StartNextWave()
+    {
+        //currentInstance = 0;
+        StopAllCoroutines();
+        StartCoroutine(spawnPrefabsCerca());
+        StartCoroutine(spawnPrefabsMedio());
+        StartCoroutine(spawnPrefabsLejos());
+    }
+
     // Start is called before the first frame update
     IEnumerator spawnPrefabsCerca(){
-        while(currentInstance < maxInstance){
-            foreach(Vector2 position in spawnCerca){
-                if(currentInstance >= maxInstance)
-                break;
+        while (waveManager.spawnedEnemiesCount < waveManager.enemiesPerWave)
+        {
+            foreach (Vector2 position in spawnCerca)
+            {
+                if (waveManager.spawnedEnemiesCount >= waveManager.enemiesPerWave)
+                    break;
 
                 Instantiate(enemyPrefab, position, Quaternion.identity);
-
-                currentInstance++;
+                waveManager.IncrementSpawnedEnemies();
 
                 interval01 = Random.Range(6.0f, 8.0f);
                 yield return new WaitForSeconds(interval01);
@@ -33,16 +58,15 @@ public class SpawnerAhoraSi : MonoBehaviour
 
     IEnumerator spawnPrefabsMedio()
     {
-        while (currentInstance < maxInstance)
+        while (waveManager.spawnedEnemiesCount < waveManager.enemiesPerWave)
         {
             foreach (Vector2 position in spawnMedio)
             {
-                if (currentInstance >= maxInstance)
+                if (waveManager.spawnedEnemiesCount >= waveManager.enemiesPerWave)
                     break;
 
                 Instantiate(enemyPrefab, position, Quaternion.identity);
-
-                currentInstance++;
+                waveManager.IncrementSpawnedEnemies();
 
                 interval02 = Random.Range(4.0f, 5.0f);
                 yield return new WaitForSeconds(interval02);
@@ -52,28 +76,20 @@ public class SpawnerAhoraSi : MonoBehaviour
 
     IEnumerator spawnPrefabsLejos()
     {
-        while (currentInstance < maxInstance)
+        while (waveManager.spawnedEnemiesCount < waveManager.enemiesPerWave)
         {
             foreach (Vector2 position in spawnLejos)
             {
-                if (currentInstance >= maxInstance)
+                if (waveManager.spawnedEnemiesCount >= waveManager.enemiesPerWave)
                     break;
 
                 Instantiate(enemyPrefab, position, Quaternion.identity);
-
-                currentInstance++;
+                waveManager.IncrementSpawnedEnemies();
 
                 interval03 = Random.Range(1.5f, 3.0f);
-                yield return new WaitForSeconds(interval02);
+                yield return new WaitForSeconds(interval03);
             }
         }
-    }
-
-    void Start()
-    {
-        StartCoroutine(spawnPrefabsCerca());
-        StartCoroutine(spawnPrefabsMedio());
-        StartCoroutine(spawnPrefabsLejos());
     }
     
 }
