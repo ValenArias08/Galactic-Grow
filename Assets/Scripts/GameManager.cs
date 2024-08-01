@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
 
         playerTotalScore += score;
-        Debug.Log("Total Score: " + playerTotalScore);
+        //Debug.Log("Total Score: " + playerTotalScore);
     }
 
     // Player getting damaged / game over (only during Night phase)
@@ -80,6 +80,11 @@ public class GameManager : MonoBehaviour
                 Destroy(Instance.gameObject);
             }
         }
+    }
+
+    public int GetScore()
+    {
+        return playerTotalScore;
     }
 
     // Reiniciar la escena
