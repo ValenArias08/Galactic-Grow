@@ -70,8 +70,6 @@ public class TopDownController : MonoBehaviour
     {
         playerLifeCounter--;
 
-        Debug.Log(playerLifeCounter);
-
         if (playerLifeCounter == 2)
         {
             lifeCounter3.sprite = emptyHeart;

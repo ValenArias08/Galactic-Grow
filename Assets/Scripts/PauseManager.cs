@@ -67,6 +67,7 @@ public class PauseManager : MonoBehaviour
     {   
         HideLoseCanvas();
         HideWinCanvas();
+        GameManager.Instance.ResetScore();
 
         Time.timeScale = 1;
         if (pauseCanvas != null)
@@ -81,13 +82,17 @@ public class PauseManager : MonoBehaviour
     {
         HideLoseCanvas();
         HideWinCanvas();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("DayScene");
+        GameManager.Instance.ResetScore();
 
         Time.timeScale = 1;
         if (pauseCanvas != null)
         {
             pauseCanvas.SetActive(false);
         }
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        
+
     }
 
     //Canvas de Victoria
@@ -109,6 +114,7 @@ public class PauseManager : MonoBehaviour
     {
         loseCanvas.SetActive(true);
         Time.timeScale = 0;
+
         isPaused = true;
     }
 
