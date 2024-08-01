@@ -13,7 +13,7 @@ public class DestroyOnCollision : MonoBehaviour
         {
             // Destruye el objeto que colisionó con el trigger
             Debug.Log("Destruyendo objeto: " + other.gameObject.name);
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
     }
 }

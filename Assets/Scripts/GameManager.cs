@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
     public int night;
     public int waveNumber;
     public int enemiesWave;
+    public Sprite plantState;
 
     private PauseManager pauseManager;
+    private Plant plantManager;
 
     private void Awake()
     {
@@ -80,9 +82,17 @@ public class GameManager : MonoBehaviour
             }
 
             SceneManager.LoadScene(sceneName);
+            Invoke("FindPlantManager", 0.1f);
         }
-        else if(sceneName == "NightScene" && night == 0)
+        else if(sceneName == "NightScene")
         {
+
+            // Guardar el estado del sprite de la planta antes de ir a Noche
+            if (plantManager != null)
+            {
+                SavePlantState(plantManager.currentSprite);
+            }
+
             // Primera vez en NightScene
             if (night == 0)
             {
@@ -113,6 +123,20 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("WaveManager no encontrado en la escena actual.");
+        }
+    }
+
+    //Encontrar Plant
+    private void FindPlantManager()
+    {
+        plantManager = FindObjectOfType<Plant>();
+        if (plantManager != null)
+        {
+            Debug.Log("PlantManager encontrado.");
+        }
+        else
+        {
+            Debug.Log("PlantManager no encontrado en la escena actual.");
         }
     }
 
@@ -157,5 +181,10 @@ public class GameManager : MonoBehaviour
         night = 0;
         waveNumber = 0;
         enemiesWave = 5;
+    }
+
+    public void SavePlantState(Sprite sprite)
+    {
+        plantState = sprite;
     }
 }
