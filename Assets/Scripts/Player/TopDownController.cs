@@ -27,7 +27,7 @@ public class TopDownController : MonoBehaviour
     public Transform attackPoint;
     // Character stats
 
-    private float playerSpeed = 4;
+    public float playerSpeed = 4;
 
     private Vector2 inputValue;
     

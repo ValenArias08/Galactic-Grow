@@ -28,9 +28,16 @@ public class CogerObjeto : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Objeto") && pickedObject == null)
-        {
+        {   
+            Canvas actionCanvas = other.gameObject.GetComponentInChildren<Canvas>();
+
             if (playerInput.action.IsPressed())
-            {
+            {   
+                if(actionCanvas != null)
+                {
+                    actionCanvas.gameObject.SetActive(false); 
+                }
+
                 other.GetComponent<Rigidbody2D>().isKinematic = true;
                 other.transform.position = handPoint.transform.position;
                 other.gameObject.transform.SetParent(handPoint.transform);
